@@ -33,7 +33,7 @@
                         <td><p class="body-4"><%= allArticles[index].content %></p></td>
                         <td><p class="body-4"><%= allArticles[index].imageUrl %></p></td>
                         <td><a href="/admin/edit-article/<%= allArticles[index].url %>"><button>Edit</button></a></td>
-                        <td><button>Delete</button></td>
+                        <td><a href="/admin/delete-article/<%= allArticles[index].url %>"><button>Delete</button></a></td>
                     </tr>
                     <% } %>
                 </table>

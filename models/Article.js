@@ -25,6 +25,13 @@ module.exports = class Article {
         );
     }
 
+    delete() {
+        return db.execute(
+            'DELETE FROM articles WHERE id = ?',
+            [this.id]
+        );
+    }
+
     static fetchAll() {
         return db.execute('SELECT * FROM articles');
     }

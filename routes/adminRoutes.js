@@ -15,4 +15,7 @@ router.use('/admin/add-new-article', adminController.adminNewArticle);
 router.post('/admin/edit-article/:url', adminController.adminEditArticle);
 router.use('/admin/edit-article/:url', adminController.adminShowEditArticle);
 
+router.post('/admin/delete-article/:url', adminController.adminDeleteArticle);
+router.use('/admin/delete-article/:url', adminController.adminShowDeleteArticle);
+
 module.exports = router;

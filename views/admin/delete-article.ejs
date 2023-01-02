@@ -8,9 +8,18 @@
                 <%- include('./../includes/admin-menu.ejs'); %>
             </div>
             <div class="admin-dashboard__container-content">
-                <h1>Edit Article</h1>
-                <form action="/admin/edit-article/<%= articleUrl %>" method="POST">
-                    <label for="id">ID: <%= articleId %></label>
+                <h1>Delete Article</h1>
+                <%= articleUrl %>
+                <p>Are you sure do you want delete article with id: <%= articleId %></p>
+                <form action="/admin/delete-article/<%= articleUrl %>" method="POST">
+                    <input id="id" type="hidden" name="id" value="<%= articleId %>">
+                    <input id="title" type="hidden" name="title" value="<%= articleTitle %>" />
+                    <input id="description" type="hidden" name="description" value="<%= articleDescription %>" />
+                    <input id="url" type="hidden" name="url" value="<%= articleUrl %>" />
+                    <input id="imageUrl" type="hidden" name="imageUrl" value="<%= articleImgeUrl %>" />
+                    <input type="submit" value="Delete">
+
+                    <!-- <label for="id">ID: <%= articleId %></label>
                     <input id="id" type="hidden" name="id" value="<%= articleId %>">
                     <label for="title">Title</label>
                     <input id="title" type="text" name="title" value="<%= articleTitle %>" />
@@ -21,7 +30,7 @@
                     <textarea id="content" name="content" cols="30" rows="10"><%= articleContent %></textarea>
                     <label for="imageUrl">Image URL</label>
                     <input id="imageUrl" type="text" name="imageUrl" value="<%= articleImgeUrl %>" />
-                    <input type="submit" value="Edit">
+                    <input type="submit" value="Edit"> -->
                 </form>
             </div>
         </div>
