@@ -1,0 +1,31 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <h1>Edit Article</h1>
+                <%= articleUrl %>
+                <form action="/admin/edit-article/<%= articleUrl %>" method="POST">
+                    <label for="id">ID: <%= articleId %></label>
+                    <input id="id" type="hidden" name="id" value="<%= articleId %>">
+                    <label for="title">Title</label>
+                    <input id="title" type="text" name="title" value="<%= articleTitle %>" />
+                    <label for="description">Description</label>
+                    <input id="description" type="text" name="description" value="<%= articleDescription %>" />
+                    <label for="url">URL</label>
+                    <input id="url" type="text" name="url" value="<%= articleUrl %>" />
+                    <textarea id="content" name="content" cols="30" rows="10"><%= articleContent %></textarea>
+                    <label for="imageUrl">Image URL</label>
+                    <input id="imageUrl" type="text" name="imageUrl" value="<%= articleImgeUrl %>" />
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

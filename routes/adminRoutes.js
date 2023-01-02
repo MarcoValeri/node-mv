@@ -12,4 +12,7 @@ router.use('/admin/articles', adminController.adminArticles);
 router.post('/admin/add-new-article', adminController.adminAddNewArticle);
 router.use('/admin/add-new-article', adminController.adminNewArticle);
 
+router.post('/admin/edit-article/:url', adminController.adminEditArticle);
+router.use('/admin/edit-article/:url', adminController.adminShowEditArticle);
+
 module.exports = router;

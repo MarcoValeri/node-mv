@@ -18,6 +18,13 @@ module.exports = class Article {
             );
     }
 
+    edit() {
+        return db.execute(
+            'UPDATE articles SET title = ?, description = ?, url = ?, content = ?, imageUrl = ? WHERE id = ?',
+            [this.title, this.description, this.url, this.content, this.imageUrl, this.id]
+        );
+    }
+
     static fetchAll() {
         return db.execute('SELECT * FROM articles');
     }
