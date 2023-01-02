@@ -1,0 +1,42 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="admin-dashboard__container-articles">
+                    <div class="admin-dashboard__articles-buttons">
+                        <button><a href="add-new-article">Add Article</a></button>
+                    </div>
+                </div>
+                <table class="admin-dashboard__table-articles">
+                    <tr>
+                        <th><h4 class="body-3">ID</h4></th>
+                        <th><h4 class="body-3">Title</h4></th>
+                        <th><h4 class="body-3">Description</h4></th>
+                        <th><h4 class="body-3">URL</h4></th>
+                        <th><h4 class="body-3">Content</h4></th>
+                        <th><h4 class="body-3">Image</h4></th>
+                        <th><h4 class="body-3">Edit</h4></th>
+                    </tr>
+                    <% for (let index = 0; index < allArticles.length; index++) { %>
+                    <tr>
+                        <td><p class="body-4"><%= allArticles[index].id %></p></td>
+                        <td><p class="body-4"><%= allArticles[index].title %></p></td>
+                        <td><p class="body-4"><%= allArticles[index].description %></p></td>
+                        <td><p class="body-4"><%= allArticles[index].url %></p></td>
+                        <td><p class="body-4"><%= allArticles[index].content %></p></td>
+                        <td><p class="body-4"><%= allArticles[index].imageUrl %></p></td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

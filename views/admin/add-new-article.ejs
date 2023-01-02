@@ -1,0 +1,27 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <form action="/admin/add-new-article" method="POST">
+                    <label for="title">Title</label>
+                    <input id="title" type="text" name="title" />
+                    <label for="description">Description</label>
+                    <input id="description" type="text" name="description" />
+                    <label for="url">URL</label>
+                    <input id="url" type="text" name="url" />
+                    <textarea id="content" name="content" cols="30" rows="10"></textarea>
+                    <label for="imageUrl">Image URL</label>
+                    <input id="imageUrl" type="text" name="imageUrl" />
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

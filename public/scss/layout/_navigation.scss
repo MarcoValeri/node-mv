@@ -1,0 +1,14 @@
+.navigation {
+    padding: 2rem;
+    border: 1px solid #000;
+
+    &__menu {
+        text-align: center;
+        list-style-type: none;
+    }
+
+    &__item {
+        margin: 0 1rem;
+        display: inline;
+    }
+}

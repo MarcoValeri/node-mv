@@ -1,0 +1,14 @@
+// Import Abstracts Files
+@import '../scss/abstracts/variables';
+
+// Import Base Files
+@import '../scss/base/base';
+@import '../scss/base/typography';
+
+// Import Layout Files
+@import '../scss/layout/admin-menu';
+@import '../scss/layout/header';
+@import '../scss/layout/navigation';
+
+// Import Pages Files
+@import '../scss/pages/admin-dashboard.scss';
