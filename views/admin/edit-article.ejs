@@ -8,21 +8,37 @@
                 <%- include('./../includes/admin-menu.ejs'); %>
             </div>
             <div class="admin-dashboard__container-content">
-                <h1>Edit Article</h1>
-                <form action="/admin/edit-article/<%= articleUrl %>" method="POST">
-                    <label for="id">ID: <%= articleId %></label>
-                    <input id="id" type="hidden" name="id" value="<%= articleId %>">
-                    <label for="title">Title</label>
-                    <input id="title" type="text" name="title" value="<%= articleTitle %>" />
-                    <label for="description">Description</label>
-                    <input id="description" type="text" name="description" value="<%= articleDescription %>" />
-                    <label for="url">URL</label>
-                    <input id="url" type="text" name="url" value="<%= articleUrl %>" />
-                    <textarea id="content" name="content" cols="30" rows="10"><%= articleContent %></textarea>
-                    <label for="imageUrl">Image URL</label>
-                    <input id="imageUrl" type="text" name="imageUrl" value="<%= articleImgeUrl %>" />
-                    <input type="submit" value="Edit">
-                </form>
+                <!-- Used the style of _add-new-article.scss -->
+                <div class="add-new-article">
+                    <h2 class="add-new-article__title h2">Edit Article with ID: <%= articleId %></h2>
+                    <form action="/admin/edit-article/<%= articleUrl %>" method="POST">
+                        <div class="add-new-article__grid">
+                            <div class="add-new-article__container-title">
+                                <label class="body-3" for="title">Title</label>
+                                <input id="title" type="text" name="title" value="<%= articleTitle %>" />
+                                <input id="id" type="hidden" name="id" value="<%= articleId %>">
+                            </div>
+                            <div class="add-new-article__container-description">
+                                <label class="body-3" for="description">Description</label>
+                                <input id="description" type="text" name="description" value="<%= articleDescription %>" />
+                            </div>
+                            <div class="add-new-article__container-url">
+                                <label class="body-3" for="url">URL</label>
+                                <input id="url" type="text" name="url" value="<%= articleUrl %>" />
+                            </div>
+                            <div class="add-new-article__container-content">
+                                <textarea id="content" name="content" cols="30" rows="10"><%= articleContent %></textarea>
+                            </div>
+                            <div class="add-new-article__container-image">
+                                <label class="body-3" for="imageUrl">Image URL</label>
+                                <input id="imageUrl" type="text" name="imageUrl" value="<%= articleImgeUrl %>" />
+                            </div>
+                            <div class="add-new-article__container-submit">
+                                <input class="button button__white" type="submit" value="Edit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

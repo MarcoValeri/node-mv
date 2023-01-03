@@ -10,7 +10,7 @@
             <div class="admin-dashboard__container-content">
                 <div class="admin-dashboard__container-articles">
                     <div class="admin-dashboard__articles-buttons">
-                        <button><a href="add-new-article">Add Article</a></button>
+                        <a class="button button__white" href="add-new-article">Add Article</a>
                     </div>
                 </div>
                 <table class="admin-dashboard__table-articles">
@@ -32,8 +32,8 @@
                         <td><p class="body-4"><%= allArticles[index].url %></p></td>
                         <td><p class="body-4"><%= allArticles[index].content %></p></td>
                         <td><p class="body-4"><%= allArticles[index].imageUrl %></p></td>
-                        <td><a href="/admin/edit-article/<%= allArticles[index].url %>"><button>Edit</button></a></td>
-                        <td><a href="/admin/delete-article/<%= allArticles[index].url %>"><button>Delete</button></a></td>
+                        <td><a class="button button__white" href="/admin/edit-article/<%= allArticles[index].url %>">Edit</a></td>
+                        <td><a class="button button__white" href="/admin/delete-article/<%= allArticles[index].url %>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

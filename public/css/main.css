@@ -5,6 +5,45 @@
 html {
   font-size: 62.5%; }
 
+.button {
+  font-size: 1.6rem;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer; }
+  .button:hover {
+    text-decoration: none; }
+  .button__black {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff; }
+    .button__black:hover {
+      color: #000;
+      background-color: #fff;
+      transform: translate(0, -2px);
+      box-shadow: 5px 5px 3px #707070; }
+  .button__white {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000; }
+    .button__white:hover {
+      color: #fff;
+      background-color: #000;
+      transform: translate(0, -2px);
+      border: 1px solid #fff; }
+
+.h1 {
+  font-size: 5.5rem; }
+
+.h2 {
+  font-size: 4.3rem; }
+
+.h3 {
+  font-size: 3.5rem; }
+
+.h4 {
+  font-size: 2.8rem; }
+
 .body-1 {
   font-size: 2.2rem; }
 
@@ -27,6 +66,10 @@ html {
   color: #000;
   text-decoration: none; }
 
+.link-no-style--white {
+  color: #fff;
+  text-decoration: none; }
+
 .admin-menu__container-single {
   padding: 2rem 0; }
 
@@ -45,27 +88,79 @@ html {
     margin: 0 1rem;
     display: inline; }
 
-.admin-dashboard__grid {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-areas: "admin-main__container-menu admin-main__container-content"; }
-
-.admin-dashboard__container-menu {
-  grid-area: admin-main__container-menu;
-  padding: 2rem;
-  border: 1px solid #000; }
-
-.admin-dashboard__container-content {
-  grid-area: admin-main__container-content;
-  padding: 10rem 2rem 10rem 2rem;
-  border: 1px solid #000; }
-
-.admin-dashboard__container-articles {
+.add-new-article__title {
   margin-bottom: 2rem; }
 
-.admin-dashboard__table-articles {
-  border-collapse: collapse; }
-  .admin-dashboard__table-articles td, .admin-dashboard__table-articles th {
-    text-align: left;
-    padding: 1rem;
-    border: 1px solid #000; }
+.add-new-article__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2rem;
+  grid-template-areas: "add-new-article__container-title" "add-new-article__container-description" "add-new-article__container-url" "add-new-article__container-content" "add-new-article__container-image" "add-new-article__container-submit"; }
+
+.add-new-article__container-title {
+  grid-area: add-new-article__container-title; }
+
+.add-new-article__container-description {
+  grid-area: add-new-article__container-description; }
+
+.add-new-article__container-url {
+  grid-area: add-new-article__container-url; }
+
+.add-new-article__container-content {
+  grid-area: add-new-article__container-content; }
+
+.add-new-article__container-image {
+  grid-area: add-new-article__container-image; }
+
+.add-new-article__container-submit {
+  grid-area: add-new-article__container-submit; }
+
+.add-new-article label,
+.add-new-article input {
+  display: block; }
+
+.add-new-article input[type=text] {
+  width: 80%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.add-new-article textarea {
+  width: 80%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.admin-dashboard {
+  background-color: #000;
+  color: #fff; }
+  .admin-dashboard__grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "admin-main__container-menu admin-main__container-content"; }
+  .admin-dashboard__container-menu {
+    grid-area: admin-main__container-menu;
+    min-height: 100vh;
+    padding: 2rem;
+    border: 1px solid #fff; }
+  .admin-dashboard__container-content {
+    grid-area: admin-main__container-content;
+    padding: 2rem 2rem 10rem 2rem; }
+  .admin-dashboard__container-articles {
+    margin-top: 3rem;
+    margin-bottom: 2rem; }
+  .admin-dashboard__table-articles {
+    border-collapse: collapse; }
+    .admin-dashboard__table-articles td, .admin-dashboard__table-articles th {
+      text-align: left;
+      padding: 1.5rem;
+      border: 1px solid #fff; }
+
+.delete-article__title {
+  margin-bottom: 2rem; }
+
+.delete-article__sub-title {
+  margin-bottom: 2rem; }
+
+.delete-article__button {
+  margin-right: 2rem; }

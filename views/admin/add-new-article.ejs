@@ -8,18 +8,35 @@
                 <%- include('./../includes/admin-menu.ejs'); %>
             </div>
             <div class="admin-dashboard__container-content">
-                <form action="/admin/add-new-article" method="POST">
-                    <label for="title">Title</label>
-                    <input id="title" type="text" name="title" />
-                    <label for="description">Description</label>
-                    <input id="description" type="text" name="description" />
-                    <label for="url">URL</label>
-                    <input id="url" type="text" name="url" />
-                    <textarea id="content" name="content" cols="30" rows="10"></textarea>
-                    <label for="imageUrl">Image URL</label>
-                    <input id="imageUrl" type="text" name="imageUrl" />
-                    <input type="submit" value="Add">
-                </form>
+                <div class="add-new-article">
+                    <h2 class="add-new-article__title h2">Add New Article</h2>
+                    <form action="/admin/add-new-article" method="POST">
+                        <div class="add-new-article__grid">
+                            <div class="add-new-article__container-title">
+                                <label class="body-3" for="title">Title</label>
+                                <input id="title" type="text" name="title" />
+                            </div>
+                            <div class="add-new-article__container-description">
+                                <label class="body-3" for="description">Description</label>
+                                <input id="description" type="text" name="description" />
+                            </div>
+                            <div class="add-new-article__container-url">
+                                <label class="body-3" for="url">URL</label>
+                                <input id="url" type="text" name="url" />
+                            </div>
+                            <div class="add-new-article__container-content">
+                                <textarea id="content" name="content" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="add-new-article__container-image">
+                                <label class="body-3" for="imageUrl">Image URL</label>
+                                <input id="imageUrl" type="text" name="imageUrl" />
+                            </div>
+                            <div class="add-new-article__container-submit">
+                                <input class="button button__white" type="submit" value="Add">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

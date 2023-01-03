@@ -1,4 +1,6 @@
 .admin-dashboard {
+    background-color: $black;
+    color: $white;
 
     &__grid {
         display: grid;
@@ -9,18 +11,19 @@
 
     &__container-menu {
         grid-area: admin-main__container-menu;
+        min-height: 100vh;
         padding: 2rem;
-        border: 1px solid $black;
+        border: 1px solid $white;
     }
 
     &__container-content {
         grid-area: admin-main__container-content;
-        padding: 10rem 2rem 10rem 2rem;
-        border: 1px solid $black;
+        padding: 2rem 2rem 10rem 2rem;
     }
 
     // Articles
     &__container-articles {
+        margin-top: 3rem;
         margin-bottom: 2rem;
     }
 
@@ -29,8 +32,8 @@
 
         td, th {
             text-align: left;
-            padding: 1rem;
-            border: 1px solid $black;
+            padding: 1.5rem;
+            border: 1px solid $white;
         }
     }
 }

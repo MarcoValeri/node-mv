@@ -1,4 +1,65 @@
+// Buttons
+.button {
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &__black {
+        color: $white;
+        background-color: $black;
+        border: 1px solid $white;
+
+        &:hover {
+            color: $black;
+            background-color: $white;
+            transform: translate(0, -2px);
+            box-shadow: 5px 5px 3px rgb(112, 112, 112);
+        }
+    }
+
+    &__white {
+        color: $black;
+        background-color: $white;
+        border: 1px solid $black;
+
+        &:hover {
+            color: $white;
+            background-color: $black;
+            transform: translate(0, -2px);
+            border: 1px solid $white;
+        }
+    }
+
+}
+
 // Font
+.h1 {
+    font-size: 5.5rem;
+    //5
+    //4.5
+}
+
+.h2 {
+    font-size: 4.3rem;
+    // 3.8
+    // 3.3
+}
+
+.h3 {
+    font-size: 3.5rem;
+    // 3
+}
+
+.h4 {
+    font-size: 2.8rem;
+}
+
 .body-1 {
     font-size: 2.2rem;
 }
@@ -26,5 +87,10 @@
 // Link
 .link-no-style {
     color: $black;
+    text-decoration: none;
+}
+
+.link-no-style--white {
+    color: $white;
     text-decoration: none;
 }
