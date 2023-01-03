@@ -1,8 +1,12 @@
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
 
 const app = express();
+
+// DotEnv configuration
+dotenv.config();
 
 // Routes
 const adminRoutes = require('./routes/adminRoutes');
@@ -25,4 +29,4 @@ app.use(adminRoutes);
 app.use(articleRoutes);
 app.use(homeRoutes);
 
-app.listen(8000);
+app.listen(process.env.SERVER_PORT);
