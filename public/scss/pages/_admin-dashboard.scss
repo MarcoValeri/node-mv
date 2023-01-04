@@ -36,4 +36,20 @@
             border: 1px solid $white;
         }
     }
+
+    // Images
+    &__container-images {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    &__table-images {
+        border-collapse: collapse;
+
+        td, th {
+            text-align: left;
+            padding: 1.5rem;
+            border: 1px solid $white;
+        }
+    }
 }

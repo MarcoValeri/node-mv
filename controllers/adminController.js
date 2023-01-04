@@ -47,7 +47,7 @@ exports.adminAddNewArticle = (req, res, next) => {
 exports.adminShowEditArticle = (req, res, next) => {
     // Save url into a variable
     const url = req.params.url;
-    
+
     Article.findByUrl(url)
         .then(([rows, fields]) => {
             let flag = false;
@@ -97,7 +97,7 @@ exports.adminEditArticle = (req, res, next) => {
 exports.adminShowDeleteArticle = (req, res, next) => {
     // Save url into a variable
     const url = req.params.url;
-    
+
     Article.findByUrl(url)
         .then(([rows, fields]) => {
             let flag = false;
@@ -142,4 +142,10 @@ exports.adminDeleteArticle = (req, res, next) => {
             res.redirect('/admin/articles')
         })
         .catch(err => console.log(err));
+}
+
+exports.adminImages = (req, res, next) => {
+    res.render('./admin/images', {
+        pageTitle: 'Admin Images'
+    })
 }

@@ -7,8 +7,8 @@ const router = express.Router();
 const adminController = require('../controllers/adminController');
 
 router.use('/admin/dashboard', adminController.adminDashboard);
-router.use('/admin/articles', adminController.adminArticles);
 
+router.use('/admin/articles', adminController.adminArticles);
 router.post('/admin/add-new-article', adminController.adminAddNewArticle);
 router.use('/admin/add-new-article', adminController.adminNewArticle);
 
@@ -17,5 +17,7 @@ router.use('/admin/edit-article/:url', adminController.adminShowEditArticle);
 
 router.post('/admin/delete-article/:url', adminController.adminDeleteArticle);
 router.use('/admin/delete-article/:url', adminController.adminShowDeleteArticle);
+
+router.use('/admin/images', adminController.adminImages);
 
 module.exports = router;
