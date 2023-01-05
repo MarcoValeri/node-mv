@@ -213,6 +213,8 @@ html {
       text-align: left;
       padding: 1.5rem;
       border: 1px solid #fff; }
+  .admin-dashboard__table-single-image {
+    width: 5rem; }
 
 .delete-article__title {
   margin-bottom: 2rem; }

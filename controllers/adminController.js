@@ -146,9 +146,18 @@ exports.adminDeleteArticle = (req, res, next) => {
 }
 
 exports.adminImages = (req, res, next) => {
-    res.render('./admin/images', {
-        pageTitle: 'Admin Images'
-    })
+
+    const URL = `${req.protocol}://${req.hostname}:${process.env.SERVER_PORT}`;
+
+    Image.fetchAll()
+        .then(([rows, fields]) => {
+            res.render('./admin/images', {
+                pageTitle: 'Admin Images',
+                allImages: rows,
+                url: URL
+            })
+        })
+        .catch(err => console.log(err));
 }
 
 exports.adminAddNewImage = (req, res, next) => {

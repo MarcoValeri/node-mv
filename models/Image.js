@@ -29,4 +29,8 @@ module.exports = class Image {
         return image.mv(pathImageFolder + image.name);
     }
 
+    static fetchAll() {
+        return db.execute('SELECT * FROM images');
+    }
+
 }
