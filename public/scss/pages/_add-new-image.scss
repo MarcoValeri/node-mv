@@ -10,7 +10,7 @@
         grid-row-gap: 2rem;
         grid-template-areas:
         "add-new-image__container-title"
-        "dd-new-image__container-caption"
+        "add-new-image__container-caption"
         "add-new-image__container-description"
         "add-new-image__container-image"
         "add-new-image__container-submit";
@@ -20,11 +20,11 @@
         grid-area: add-new-image__container-title;
     }
 
-    &__container-description {
-        grid-area: dd-new-image__container-caption;
+    &__container-caption {
+        grid-area: add-new-image__container-caption;
     }
 
-    &__container-url {
+    &__container-description {
         grid-area: add-new-image__container-description;
     }
 

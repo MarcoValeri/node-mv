@@ -163,10 +163,21 @@ exports.adminUploadNewImage = (req, res, next) => {
     const imageTitle = req.body.title;
     const imageCaption = req.body.caption;
     const imageDescription = req.body.description;
-    const imageFile = req.body.image;
 
-    const newImage = new Image(req.files);
+
+    /**
+     * Save a new image.
+     *
+     * ID and URL are set to NULL because
+     * they are added into the Model
+     */
+    const newImage = new Image(null, imageTitle, imageCaption, imageDescription, null, req.files);
     newImage.upload();
+    newImage.save()
+        .then(() => {
+            res.redirect('/admin/images');
+        })
+        .catch(err => console.log(err));
 
     res.redirect('/admin/images');
 }
