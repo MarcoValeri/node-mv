@@ -90,7 +90,7 @@ exports.adminEditArticle = (req, res, next) => {
     const editArticle = new Article(newArticleId, newArticleTitle, newArticleDescription, newArticleUrl, newArticleContent, newArticleImage);
     editArticle.edit()
         .then(() => {
-            res.redirect('/admin/articles')
+            res.redirect('/admin/articles');
         })
         .catch(err => console.log(err));
 }
@@ -189,4 +189,51 @@ exports.adminUploadNewImage = (req, res, next) => {
         .catch(err => console.log(err));
 
     res.redirect('/admin/images');
+}
+
+exports.adminShowEditImage = (req, res, next) => {
+    // Save url into a variable
+    const url = req.params.url;
+
+    Image.findByUrl(url)
+        .then(([rows, fields]) => {
+            let flag = false;
+            for (index = 0; index < rows.length; index++) {
+                if (rows[index].url === url) {
+                    flag = true;
+                    res.render('./admin/edit-image', {
+                        pageTitle: `Admin Edit Image: ${url}`,
+                        imageId: rows[index].id,
+                        imageTitle: rows[index].title,
+                        imageCaption: rows[index].caption,
+                        imageDescription: rows[index].description,
+                        imageUrl: rows[index].url
+                    })
+                }
+            }
+
+            if (!flag) {
+                /**
+                 * TODO: Redirect to error 404 template once it will be ready
+                 */
+                res.redirect('/');
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminEditImage = (req, res, next) => {
+    // Get data by the form
+    const newImageId = req.body.id;
+    const newImageTitle = req.body.title;
+    const newImageCaption = req.body.caption;
+    const newImageDescription = req.body.description;
+
+    // Save data into db
+    const editImage = new Image(newImageId, newImageTitle, newImageCaption, newImageDescription, null, null);
+    editImage.edit()
+        .then(() => {
+            res.redirect('/admin/images');
+        })
+        .catch(err => console.log(err));
 }

@@ -8,28 +8,30 @@
                 <%- include('./../includes/admin-menu.ejs'); %>
             </div>
             <div class="admin-dashboard__container-content">
+                <!-- Used the style of _add-new-image.scss -->
                 <div class="add-new-image">
-                    <h2 class="add-new-image__title h2">Add New Image</h2>
-                    <form action="/admin/upload-new-image" enctype="multipart/form-data" method="POST">
+                    <h2 class="add-new-image__title h2">Edit Image with ID: <%= imageId %></h2>
+                    <form action="/admin/edit-image/<%= imageUrl %>" method="POST">
                         <div class="add-new-image__grid">
                             <div class="add-new-image__container-title">
                                 <label class="body-3" for="title">Title</label>
-                                <input id="title" type="text" name="title" />
+                                <input id="title" type="text" name="title" value="<%= imageTitle %>" />
+                                <input id="id" type="hidden" name="id" value="<%= imageId %>">
                             </div>
                             <div class="add-new-image__container-caption">
                                 <label class="body-3" for="caption">Caption</label>
-                                <input id="caption" type="text" name="caption" />
+                                <input id="caption" type="text" name="caption" value="<%= imageCaption %>" />
                             </div>
                             <div class="add-new-image__container-description">
                                 <label class="body-3" for="description">Description</label>
-                                <input id="description" type="text" name="description" />
+                                <input id="description" type="text" name="description" value="<%= imageDescription %>" />
                             </div>
-                            <div class="add-new-image__container-image">
+                            <!-- <div class="add-new-image__container-image">
                                 <label class="body-3" for="image">Upload the image</label>
-                                <input id="image" type="file" name="image" />
-                            </div>
+                                <input id="image" type="file" name="image" value="<%= imageUrl %>" />
+                            </div> -->
                             <div class="add-new-image__container-submit">
-                                <input class="button button__white" type="submit" value="Add" />
+                                <input class="button button__white" type="submit" value="Add">
                             </div>
                         </div>
                     </form>

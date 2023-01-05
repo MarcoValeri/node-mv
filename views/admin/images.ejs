@@ -32,7 +32,7 @@
                         <td><p class="body-4"><%= allImages[index].description %></p></td>
                         <td><p class="body-4"><%= allImages[index].url %></p></td>
                         <td><a href="<%= url %>/images/<%= allImages[index].url %>"><img class="admin-dashboard__table-single-image" src="<%= url %>/images/<%= allImages[index].url %>" alt="<%= allImages[index].title %> image"></a></td>
-                        <td><a class="button button__white" href="">Edit</a></td>
+                        <td><a class="button button__white" href="/admin/edit-image/<%= allImages[index].url %>">Edit</a></td>
                         <td><a class="button button__white" href="">Delete</a></td>
                     </tr>
                     <% } %>

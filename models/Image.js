@@ -29,8 +29,19 @@ module.exports = class Image {
         return image.mv(pathImageFolder + image.name);
     }
 
+    edit() {
+        return db.execute(
+            'UPDATE images SET title = ?, caption = ?, description = ? WHERE id = ?',
+            [this.title, this.caption, this.description, this.id]
+        );
+    }
+
     static fetchAll() {
         return db.execute('SELECT * FROM images');
+    }
+
+    static findByUrl(url) {
+        return db.execute(`SELECT * FROM images WHERE url = ?`, [url]);
     }
 
 }
