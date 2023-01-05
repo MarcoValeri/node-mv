@@ -1,0 +1,41 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="add-new-image">
+                    <h2 class="add-new-image__title h2">Add New Image</h2>
+                    <form action="/admin/upload-new-image" enctype="multipart/form-data" method="POST">
+                        <div class="add-new-image__grid">
+                            <div class="add-new-image__container-title">
+                                <label class="body-3" for="title">Title</label>
+                                <input id="title" type="text" name="title" />
+                            </div>
+                            <div class="add-new-image__container-caption">
+                                <label class="body-3" for="caption">Caption</label>
+                                <input id="caption" type="text" name="caption" />
+                            </div>
+                            <div class="add-new-image__container-description">
+                                <label class="body-3" for="description">Description</label>
+                                <input id="description" type="text" name="description" />
+                            </div>
+                            <div class="add-new-image__container-image">
+                                <label class="body-3" for="image">Upload the image</label>
+                                <input id="image" type="file" name="image">
+                            </div>
+                            <div class="add-new-image__container-submit">
+                                <input class="button button__white" type="submit" value="Add">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

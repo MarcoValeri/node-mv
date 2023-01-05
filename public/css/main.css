@@ -131,6 +131,55 @@ html {
   padding: 1rem;
   border-radius: 5px; }
 
+.add-new-image__title {
+  margin-bottom: 2rem; }
+
+.add-new-image__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2rem;
+  grid-template-areas: "add-new-image__container-title" "dd-new-image__container-caption" "add-new-image__container-description" "add-new-image__container-image" "add-new-image__container-submit"; }
+
+.add-new-image__container-title {
+  grid-area: add-new-image__container-title; }
+
+.add-new-image__container-description {
+  grid-area: dd-new-image__container-caption; }
+
+.add-new-image__container-url {
+  grid-area: add-new-image__container-description; }
+
+.add-new-image__container-image {
+  grid-area: add-new-image__container-image; }
+
+.add-new-image__container-image {
+  grid-area: add-new-image__container-submit; }
+
+.add-new-image label,
+.add-new-image input {
+  display: block; }
+
+.add-new-image input[type=text] {
+  width: 80%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.add-new-image input[type=file] {
+  font-size: 1.6rem;
+  padding: 1rem 0; }
+
+.add-new-image input[type=file]::file-selector-button {
+  font-size: 1.6rem;
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 5px; }
+  .add-new-image input[type=file]::file-selector-button:hover {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff; }
+
 .admin-dashboard {
   background-color: #000;
   color: #fff; }

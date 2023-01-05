@@ -1,3 +1,4 @@
+const fileUpload = require('express-fileupload');
 const express = require('express');
 
 // Express Router
@@ -18,6 +19,9 @@ router.use('/admin/edit-article/:url', adminController.adminShowEditArticle);
 router.post('/admin/delete-article/:url', adminController.adminDeleteArticle);
 router.use('/admin/delete-article/:url', adminController.adminShowDeleteArticle);
 
+router.use(fileUpload());
 router.use('/admin/images', adminController.adminImages);
+router.post('/admin/upload-new-image', adminController.adminUploadNewImage);
+router.use('/admin/add-new-image', adminController.adminAddNewImage);
 
 module.exports = router;
