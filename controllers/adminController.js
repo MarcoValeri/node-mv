@@ -1,10 +1,8 @@
 const bodyParser = require('body-parser');
-const path = require('path');
-const pathImageFolder = path.join(__dirname, '../', '/public/images/');
-console.log(pathImageFolder);
 
 // Models
 const Article = require('../models/Article');
+const Image = require('../models/Image');
 
 exports.adminDashboard = (req, res, next) => {
     res.render('./admin/dashboard', {
@@ -155,9 +153,6 @@ exports.adminImages = (req, res, next) => {
 
 exports.adminAddNewImage = (req, res, next) => {
 
-    // const { image } = req.files;
-    // console.log(image.name);
-
     res.render('./admin/add-new-image', {
         pageTitle: 'Admin Add New Image'
     })
@@ -170,10 +165,8 @@ exports.adminUploadNewImage = (req, res, next) => {
     const imageDescription = req.body.description;
     const imageFile = req.body.image;
 
-    // Save image into an object and then upload in the images folder
-    const { image } = req.files;
-    if (!image) return res.sendStatus(400);
-    image.mv(pathImageFolder + image.name);
+    const newImage = new Image(req.files);
+    newImage.upload();
 
     res.redirect('/admin/images');
 }

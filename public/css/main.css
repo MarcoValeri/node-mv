@@ -152,7 +152,7 @@ html {
 .add-new-image__container-image {
   grid-area: add-new-image__container-image; }
 
-.add-new-image__container-image {
+.add-new-image__container-submit {
   grid-area: add-new-image__container-submit; }
 
 .add-new-image label,
