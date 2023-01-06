@@ -1,4 +1,5 @@
 const db = require('../util/database');
+const fs = require('fs');
 const path = require('path');
 const pathImageFolder = path.join(__dirname, '../', '/public/images/');
 
@@ -33,6 +34,21 @@ module.exports = class Image {
         return db.execute(
             'UPDATE images SET title = ?, caption = ?, description = ? WHERE id = ?',
             [this.title, this.caption, this.description, this.id]
+        );
+    }
+
+    deleteImage(imageName) {
+        fs.unlink(pathImageFolder + imageName, (err) => {
+            if (err) {
+                throw err;
+            }
+        })
+    }
+
+    deleteImageData() {
+        return db.execute(
+            'DELETE FROM images WHERE id = ?',
+            [this.id]
         );
     }
 
