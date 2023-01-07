@@ -1,0 +1,28 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="delete-image">
+                    <h2 class="delete-image__title h2">Delete Article with ID: <%= imageId %>?</h2>
+                    <p class="delete-image__sub-title body-2">Are you sure do you want delete article with id: <%= imageId %></p>
+                </div>
+                <form action="/admin/delete-image/<%= imageUrl %>" method="POST">
+                    <input id="id" type="hidden" name="id" value="<%= imageId %>">
+                    <input id="title" type="hidden" name="title" value="<%= imageTitle %>" />
+                    <input id="caption" type="hidden" name="caption" value="<%= imageCaption %>" />
+                    <input id="description" type="hidden" name="description" value="<%= imageDescription %>" />
+                    <input id="url" type="hidden" name="imageUrl" value="<%= imageUrl %>" />
+                    <input class="delete-image__button button button__white" type="submit" value="Delete">
+                    <a href="/admin/images" class="button button__white">Back to Images</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

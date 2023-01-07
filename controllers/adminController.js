@@ -140,7 +140,7 @@ exports.adminDeleteArticle = (req, res, next) => {
     const deleteArticle = new Article(deleteArticleId, deleteArticleTitle, deleteArticleDescription, deleteArticleUrl, deleteArticleContent, deleteArticleImage);
     deleteArticle.delete()
         .then(() => {
-            res.redirect('/admin/articles')
+            res.redirect('/admin/articles');
         })
         .catch(err => console.log(err));
 }
@@ -232,6 +232,54 @@ exports.adminEditImage = (req, res, next) => {
     // Save data into db
     const editImage = new Image(newImageId, newImageTitle, newImageCaption, newImageDescription, null, null);
     editImage.edit()
+        .then(() => {
+            res.redirect('/admin/images');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminShowDeleteImage = (req, res, next) => {
+    // Save url into a variable
+    const url = req.params.url;
+
+    Image.findByUrl(url)
+        .then(([rows, fields]) => {
+            let flag = false;
+            for (index = 0; index < rows.length; index++) {
+                if (rows[index].url === url) {
+                    flag = true;
+                    res.render('./admin/delete-image', {
+                        pageTitle: `Admin Delete Image: ${url}`,
+                        imageId: rows[index].id,
+                        imageTitle: rows[index].title,
+                        imageCaption: rows[index].caption,
+                        imageDescription: rows[index].description,
+                        imageUrl: rows[index].url
+                    })
+                }
+            }
+
+            if (!flag) {
+                /**
+                 * TODO: Redirect to error 404 template once it will be ready
+                 */
+                res.redirect('/');
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminDeleteImage = (req, res, next) => {
+    // Get data by the form
+    const deleteImageId = req.body.id;
+    const deleteImageTitle = req.body.title;
+    const deleteImageCaption = req.body.caption;
+    const deleteImageDescription = req.body.description;
+    const deleteImageUrl = req.body.imageUrl;
+
+    const deleteImage = new Image(deleteImageId, deleteImageTitle, deleteImageCaption, deleteImageDescription, deleteImageUrl, null);
+    deleteImage.removeImage(deleteImageUrl);
+    deleteImage.deleteImageData()
         .then(() => {
             res.redirect('/admin/images');
         })

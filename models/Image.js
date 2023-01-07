@@ -37,7 +37,8 @@ module.exports = class Image {
         );
     }
 
-    deleteImage(imageName) {
+    // Delete image from images folder
+    removeImage(imageName) {
         fs.unlink(pathImageFolder + imageName, (err) => {
             if (err) {
                 throw err;

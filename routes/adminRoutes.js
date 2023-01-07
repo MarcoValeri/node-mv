@@ -24,8 +24,10 @@ router.use('/admin/images', adminController.adminImages);
 router.post('/admin/upload-new-image', adminController.adminUploadNewImage);
 router.use('/admin/add-new-image', adminController.adminAddNewImage);
 
-
 router.post('/admin/edit-image/:url', adminController.adminEditImage);
 router.use('/admin/edit-image/:url', adminController.adminShowEditImage);
+
+router.post('/admin/delete-image/:url', adminController.adminDeleteImage);
+router.use('/admin/delete-image/:url', adminController.adminShowDeleteImage);
 
 module.exports = router;
