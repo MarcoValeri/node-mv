@@ -29,4 +29,6 @@ app.use(adminRoutes);
 app.use(articleRoutes);
 app.use(homeRoutes);
 
-app.listen(process.env.SERVER_PORT);
+const PORT = process.env.PORT || process.env.SERVER_PORT;
+
+app.listen(PORT);

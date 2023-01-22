@@ -1,4 +1,4 @@
-// Buttons
+// Button
 .button {
     font-size: 1.6rem;
     text-decoration: none;
@@ -13,7 +13,6 @@
     &__black {
         color: $white;
         background-color: $black;
-        border: 1px solid $white;
 
         &:hover {
             color: $black;
@@ -26,7 +25,6 @@
     &__white {
         color: $black;
         background-color: $white;
-        border: 1px solid $black;
 
         &:hover {
             color: $white;
@@ -35,7 +33,6 @@
             border: 1px solid $white;
         }
     }
-
 }
 
 // Font
@@ -84,13 +81,69 @@
     font-weight: 900;
 }
 
-// Link
-.link-no-style {
-    color: $black;
-    text-decoration: none;
+.rainbow {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, #cccc2c, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-.link-no-style--white {
-    color: $white;
+// Links
+.no-link {
     text-decoration: none;
+    color: #000;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.no-link--white {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+        text-decoration: none;
+        border: 1px solid #000;
+    }
+}
+
+.link {
+    color: #296eb4;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Fonts
+.font-tangerine {
+    font-family: 'Tangerine', cursive;
+}
+
+// List no stye for ul and ol
+.list-no-style {
+    list-style-type: none;
+}
+
+// Errors
+.error {
+    font-size: 1.8rem;
+    color: #f00;
+}
+
+// Brand
+.brand-name {
+    font-size: 4rem;
+    color: #fff;
+
+    @include respond(sm) {
+        font-size: 3rem;
+    }
+}
+
+// Heart 
+.heart {
+    font-size: 3.5rem;
+    color: #ff0000;
 }

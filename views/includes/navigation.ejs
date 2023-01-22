@@ -1,5 +1,32 @@
-<nav class="navigation">
-    <ul class="navigation__menu">
-        <li class="navigation__item"><a class="body-3 link-no-style" href="/">Home</a></li>
-    </ul>
+<nav class="navbar">
+    <div class="navbar__toggle">
+        <label for="navbar menu" aria-label="navbar menu"></label>
+        <input id="navbar menu" name="navbar menu" class="navbar__input" type="checkbox" aria-label="navbar menu" />
+        <span class="navbar__span"></span>
+        <span class="navbar__span"></span>
+        <span class="navbar__span"></span>
+        <ul class="navbar__menu">
+            <li class="navbar__element navbar__logo">
+                <a class="brand-name no-link" href="/">Marco Valeri</a>
+            </li>
+            <li class="navbar__element <%= pageUrl === '/' ? 'navbar__element--mark' : '' %>">
+                <a class="navbar__link" href="/">Home</a>
+            </li>
+            <li class="navbar__element <%= pageUrl === '/page/chi-sono' ? 'navbar__element--mark' : '' %>" >
+                <a class="navbar__link" href="/page/chi-sono">Chi sono</a>
+            </li>
+            <li class="navbar__element <%= pageUrl === '/articoli' ? 'navbar__element--mark' : '' %>">
+                <a class="navbar__link" href="/articoli">Articoli</a>
+            </li>
+            <li class="navbar__element <%= pageUrl === '/page/contatti' ? 'navbar__element--mark' : '' %>">
+                <a class="navbar__link" href="/page/contatti">Contatti</a>
+            </li>
+            <li class="navbar__element <%= pageUrl === '/page/newsletter' ? 'navbar__element--mark' : '' %>">
+                <a class="navbar__link" href="/page/newsletter">Newsletter</a>
+            </li>
+            <li class="navbar__element">
+                <a class="navbar__link" href="/admin/dashboard">Admin</a>
+            </li>
+        </ul>
+    </div>
 </nav>

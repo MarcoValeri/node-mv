@@ -1,8 +1,47 @@
 .header {
-    height: 30vh;
+    height: 50vh;
+    min-height: 40rem;
+    background-color: #000;
 
-    &__container-content {
+    &__hero {
+        width: 30%;
+        margin: 6rem auto 0rem auto;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 5px;
+
+        @include respond('xxl') {
+            width: 40%;
+        }
+
+        @include respond('xl') {
+            width: 50%;
+        }
+
+        @include respond('lg') {
+            width: 60%;
+        }
+
+        @include respond('md') {
+            width: 90%;
+        }
+
+        @include respond('xs') {
+            margin: 3rem auto 0rem auto;
+        }
+    }
+
+    &__container {
+        padding: 3rem;
         text-align: center;
+    }
+
+    &__title {
+        font-size: 8rem;
+
+        @include respond('sm') {
+            font-size: 6rem;
+        }
     }
 
 }

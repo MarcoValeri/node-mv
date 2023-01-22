@@ -1,0 +1,118 @@
+.content {
+    grid-area: content;
+    padding: 3rem;
+
+    @include respond(md) {
+        padding: 1.5rem;
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    &__image-picture {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    
+        @include respond(md) {
+            font-size: 2rem;
+        }
+    }
+
+    &__data {
+        margin-bottom: 2rem;
+    }
+
+    &__data-item {
+        font-size: 1.6rem;
+        margin-bottom: .5rem;
+        color: $grey-font;
+    }
+
+    &__index {
+        padding: 3rem;
+        margin: 4rem 0;
+        border-radius: 5px;
+        border: 1px solid $grey-light;
+    
+        &:hover {
+            border: 1px solid $blue-link;
+        }
+    }
+
+    &__index-item {
+        padding: .5rem;
+    }
+
+    // Gender
+    &__gender-banner {
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid $grey-light;
+    }
+
+    &__gender-item {
+        display: inline-block;
+        padding: 1rem;
+    }
+
+    &__gender-icon {
+        width: 5rem;
+        cursor: pointer;
+    }
+
+    &__gender-icon--active {
+        background-color: $green-active;
+        border-radius: 50px;
+    }
+    
+    &__main {
+        margin-bottom: 5rem;
+    
+        li {
+            @include respond(md) {
+                margin-left: 3.5rem;
+            }
+        }
+    }
+    
+    &__main--female {
+        display: none;
+    }
+    
+    &__main--non-binary {
+        display: none;
+    }
+    
+    &__main h2 {
+        font-size: 3.2rem;
+    }
+    
+    &__main h3 {
+        font-size: 2.8rem;
+    }
+    
+    &__main p {
+        font-size: 2.2rem;
+        line-height: 1.6;
+    }
+    
+    &__main li {
+        font-size: 2.2rem;
+        line-height: 1.6;
+    }
+    
+    &__main li {
+        margin-left: 5rem;
+    }
+
+}
+

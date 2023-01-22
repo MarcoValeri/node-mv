@@ -1,14 +1,20 @@
 // Import Abstracts Files
+@import '../scss/abstracts/mixins';
 @import '../scss/abstracts/variables';
 
 // Import Base Files
 @import '../scss/base/base';
+@import '../scss/base/font';
 @import '../scss/base/typography';
 
 // Import Layout Files
 @import '../scss/layout/admin-menu';
+@import '../scss/layout/content';
+@import '../scss/layout/footer';
 @import '../scss/layout/header';
+@import '../scss/layout/main';
 @import '../scss/layout/navigation';
+@import '../scss/layout/sidebar';
 
 // Import Pages Files
 @import '../scss/pages/add-new-article';

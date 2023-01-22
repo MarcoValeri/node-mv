@@ -1,0 +1,33 @@
+.sidebar {
+    grid-area: sidebar;
+    padding: 1.5rem;
+    text-align: center;
+
+    &__item {
+        margin-bottom: 2.5rem;
+    }
+
+    &__item-title {
+        padding: 2rem 0;
+        font-size: 2rem;
+        color: #fff;
+        background-color: #000;
+    }
+
+    &__item-content {
+        padding: 1rem;
+        font-size: 1.8rem;
+        text-align: left;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    &__item-content--icons {
+        padding: 2rem;
+        text-align: left;
+    }
+
+    &__item-icon {
+        padding: 1rem;
+    }
+}
