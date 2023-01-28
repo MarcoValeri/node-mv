@@ -9,6 +9,9 @@ const adminController = require('../controllers/adminController');
 
 router.use('/admin/dashboard', adminController.adminDashboard);
 
+router.post('/admin/login', adminController.adminLogin);
+router.use('/admin/login', adminController.adminLogin);
+
 router.use('/admin/articles', adminController.adminArticles);
 router.post('/admin/add-new-article', adminController.adminAddNewArticle);
 router.use('/admin/add-new-article', adminController.adminNewArticle);

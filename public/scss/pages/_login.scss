@@ -1,0 +1,55 @@
+.login {
+    position: relative;
+    height: 80vh;
+
+    &__form {
+        position: absolute;
+        width: 60%;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+
+        @include respond(lg) {
+            width: 80%;
+        }
+    }
+
+    &__form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 3rem;
+        grid-template-areas:
+        "login__form-container-email login__form-container-password"
+        "login__form-container-btn login__form-container-btn";
+
+        @include respond(md) {
+            grid-template-columns: 1fr;
+            grid-row-gap: 3rem;
+            grid-template-areas:
+            "login__form-container-email"
+            "login__form-container-password"
+            "login__form-container-btn";
+        }
+    }
+
+    &__form-container-email {
+        grid-template-areas: login__form-container-email;
+    }
+
+    &__form-container-password {
+        grid-template-areas: login__form-container-password;
+    }
+
+    &__form-container-btn {
+        grid-template-areas: login__form-container-btn;
+    }
+
+    // Form General Rulse
+    input[type=email],
+    input[type=password] {
+        width: 80%;
+        font-size: 1.6rem;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+}

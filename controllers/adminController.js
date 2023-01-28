@@ -4,6 +4,19 @@ const bodyParser = require('body-parser');
 const Article = require('../models/Article');
 const Image = require('../models/Image');
 
+exports.adminLogin = (req, res, next) => {
+    // Get data by the form
+    const adminLoginEmail = req.body.emailLogin;
+    const adminLoginPassword = req.body.passwordLogin;
+
+    console.log(`Email: ${adminLoginEmail}`);
+    console.log(`Password: ${adminLoginPassword}`);
+
+    res.render('./admin/login', {
+        pageTitle: 'Login Page'
+    })
+}
+
 exports.adminDashboard = (req, res, next) => {
     res.render('./admin/dashboard', {
         pageTitle: 'Admin Dashboard'
