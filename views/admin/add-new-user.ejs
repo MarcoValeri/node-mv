@@ -1,0 +1,33 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="add-new-user">
+                    <h2 class="add-new-user__title h2">Add New Article</h2>
+                    <form action="/admin/add-new-user" method="POST">
+                        <div class="add-new-user__grid">
+                            <div class="add-new-user__container-email">
+                                <label class="body-3" for="userEmail">Email</label>
+                                <input id="userEmail" type="email" name="userEmail" />
+                            </div>
+                            <div class="add-new-user__container-password">
+                                <label class="body-3" for="userPassword">Password</label>
+                                <input id="userPassword" type="password" name="userPassword" />
+                            </div>
+                            <div class="add-new-user__container-submit">
+                                <input class="button button__white" type="submit" value="Add">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

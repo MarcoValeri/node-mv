@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 // Models
 const Article = require('../models/Article');
 const Image = require('../models/Image');
+const User = require('../models/User');
 
 exports.adminLogin = (req, res, next) => {
     // Get data by the form
@@ -295,6 +296,38 @@ exports.adminDeleteImage = (req, res, next) => {
     deleteImage.deleteImageData()
         .then(() => {
             res.redirect('/admin/images');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminUsers = (req, res, next) => {
+    User.fetchAll()
+        .then(([rows, fields]) => {
+            res.render('./admin/users', {
+                pageTitle: 'Admin Users',
+                allUsers: rows
+            })
+        })
+        .catch(err => console.log(err));
+        
+}
+
+exports.adminNewUser = (req, res, next) => {
+    res.render('./admin/add-new-user', {
+        pageTitle: 'Admin Add New User'
+    })
+}
+
+exports.adminAddNewArticle = (req, res, next) => {
+    // Get data by the form
+    const newUserEmail = req.body.userEmail;
+    const newUserPassword = req.body.userPassword;
+
+    // Save data into db
+    const newUser = new User(null, newUserEmail, newUserPassword);
+    newUser.save()
+        .then(() => {
+            res.redirect('/admin/dashboard');
         })
         .catch(err => console.log(err));
 }

@@ -1,0 +1,43 @@
+.add-new-user {
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 2rem;
+        grid-template-areas:
+        "add-new-user__container-email"
+        "add-new-user__container-password"
+        "add-new-user__container-submit";
+    }
+
+    &__container-email {
+        grid-area: add-new-user__container-email;
+    }
+
+    &__container-password {
+        grid-area: add-new-user__container-password;
+    }
+
+    &__container-submit {
+        grid-area: add-new-user__container-submit;
+    }
+
+    // Form General Rulse
+    label,
+    input {
+        display: block;
+    }
+
+    input[type=email],
+    input[type=password] {
+        width: 80%;
+        font-size: 1.6rem;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+}

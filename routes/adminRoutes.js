@@ -33,4 +33,8 @@ router.use('/admin/edit-image/:url', adminController.adminShowEditImage);
 router.post('/admin/delete-image/:url', adminController.adminDeleteImage);
 router.use('/admin/delete-image/:url', adminController.adminShowDeleteImage);
 
+router.use('/admin/users', adminController.adminUsers);
+router.post('/admin/add-new-user', adminController.adminAddNewArticle);
+router.use('/admin/add-new-user', adminController.adminNewUser);
+
 module.exports = router;
