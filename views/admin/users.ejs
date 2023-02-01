@@ -26,8 +26,8 @@
                         <td><p class="body-4"><%= allUsers[index].id %></p></td>
                         <td><p class="body-4"><%= allUsers[index].email %></p></td>
                         <td><p class="body-4"><%= allUsers[index].password %></p></td>
-                        <td><a class="button button__white" href="/admin/edit-user/<%= allUsers[index].url %>">Edit</a></td>
-                        <td><a class="button button__white" href="/admin/delete-user/<%= allUsers[index].url %>">Delete</a></td>
+                        <td><a class="button button__white" href="/admin/edit-user/<%= allUsers[index].id %>">Edit</a></td>
+                        <td><a class="button button__white" href="/admin/delete-user/<%= allUsers[index].id %>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

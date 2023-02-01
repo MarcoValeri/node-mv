@@ -37,4 +37,10 @@ router.use('/admin/users', adminController.adminUsers);
 router.post('/admin/add-new-user', adminController.adminAddNewArticle);
 router.use('/admin/add-new-user', adminController.adminNewUser);
 
+router.post('/admin/edit-user/:id', adminController.adminEditUser);
+router.use('/admin/edit-user/:id', adminController.adminShowEditUser);
+
+router.post('/admin/delete-user/:id', adminController.adminDeleteUser);
+router.use('/admin/delete-user/:id', adminController.adminShowDeleteUser);
+
 module.exports = router;

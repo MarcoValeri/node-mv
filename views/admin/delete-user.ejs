@@ -1,0 +1,26 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="delete-article">
+                    <h2 class="delete-article__title h2">Delete User with ID: <%= userId %>?</h2>
+                    <p class="delete-article__sub-title body-2">Are you sure do you want delete user with id: <%= userId %></p>
+                </div>
+                <form action="/admin/delete-user/<%= userId %>" method="POST">
+                    <input id="userId" type="hidden" name="userId" value="<%= userId %>">
+                    <input id="userEmail" type="hidden" name="userEmail" value="<%= userEmail %>" />
+                    <input id="userPassword" type="hidden" name="userPassword" value="<%= userPassword %>" />
+                    <input class="delete-article__button button button__white" type="submit" value="Delete">
+                    <a href="/admin/users" class="button button__white">Back to Users</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>

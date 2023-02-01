@@ -309,7 +309,7 @@ exports.adminUsers = (req, res, next) => {
             })
         })
         .catch(err => console.log(err));
-        
+
 }
 
 exports.adminNewUser = (req, res, next) => {
@@ -328,6 +328,102 @@ exports.adminAddNewArticle = (req, res, next) => {
     newUser.save()
         .then(() => {
             res.redirect('/admin/dashboard');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminShowEditUser = (req, res, next) => {
+    /**
+     * Save id into a variable as string.
+     * Transform it into a int
+     */
+    const idString = req.params.id;
+    const id = parseInt(idString);
+
+    User.findById(id)
+        .then(([rows, fields]) => {
+            let flag = false;
+            for (let index = 0; index < rows.length; index++) {
+                if (rows[index].id === id) {
+                    flag = true;
+                    res.render('./admin/edit-user', {
+                        pageTitle: `Admin Edit User: ${id}`,
+                        userId: rows[index].id,
+                        userEmail: rows[index].email,
+                        userPassword: rows[index].password
+                    })
+                }
+            }
+
+            if (!flag) {
+                /**
+                 * TODO: Redirect to error 404 template once it will be ready
+                 */
+                res.redirect('/');
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminEditUser = (req, res, next) => {
+    // Get data by the form
+    const newUserId = req.body.userId;
+    const newUserEamil = req.body.userEmail;
+    const newUserPassword = req.body.userPassword;
+
+    // Save data into db
+    const editUser = new User(newUserId, newUserEamil, newUserPassword);
+    editUser.edit()
+        .then(() => {
+            res.redirect('/admin/users');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminShowDeleteUser = (req, res, next) => {
+    /**
+     * Save id into a variable as string.
+     * Transform it into a int
+     */
+    const idString = req.params.id;
+    const id = parseInt(idString);
+
+    User.findById(id)
+        .then(([rows, fields]) => {
+            let flag = false;
+            for (let index = 0; index < rows.length; index++) {
+                if (rows[index].id === id) {
+                    flag = true;
+                    res.render('./admin/delete-user', {
+                        pageTitle: `Admin Delete User: ${id}`,
+                        userId: rows[index].id,
+                        userEmail: rows[index].email,
+                        userPassword: rows[index].password
+                    })
+                }
+            }
+
+            if (!flag) {
+                /**
+                 * TODO: Redirect to error 404 template once it will be ready
+                 */
+                res.redirect('/');
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+exports.adminDeleteUser = (req, res, next) => {
+    // Get data by the form
+    const deleteUserId = req.body.userId;
+    const deleteUserEmail = req.body.userEmail;
+    const deleteUserPassword = req.body.userPassword;
+
+    // Delete data from db
+    const deleteUser = new User(deleteUserId, deleteUserEmail, deleteUserPassword);
+    deleteUser.delete()
+        .then(() => {
+            res.redirect('/admin/users');
         })
         .catch(err => console.log(err));
 }

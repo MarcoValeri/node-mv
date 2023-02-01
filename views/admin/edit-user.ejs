@@ -1,0 +1,35 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <!-- Used the style of _add-new-user.scss -->
+                <div class="add-new-user">
+                    <h2 class="add-new-user__title h2">Edit User with ID: <%= userId %></h2>
+                    <form action="/admin/edit-user/<%= userId %>" method="POST">
+                        <div class="add-new-user__grid">
+                            <div class="add-new-user__container-email">
+                                <label class="body-3" for="userEmail">Email</label>
+                                <input id="userEmail" type="email" name="userEmail" value="<%= userEmail %>" />
+                                <input id="userId" type="hidden" name="userId" value="<%= userId %>">
+                            </div>
+                            <div class="add-new-user__container-password">
+                                <label class="body-3" for="userPassword">Password</label>
+                                <input id="userPassword" type="password" name="userPassword"  value="<%= userPassword %>" />
+                            </div>
+                            <div class="add-new-user__container-submit">
+                                <input class="button button__white" type="submit" value="Edit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('./../includes/footer.ejs'); %>
