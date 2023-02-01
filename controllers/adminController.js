@@ -6,16 +6,32 @@ const Image = require('../models/Image');
 const User = require('../models/User');
 
 exports.adminLogin = (req, res, next) => {
-    // Get data by the form
-    const adminLoginEmail = req.body.emailLogin;
-    const adminLoginPassword = req.body.passwordLogin;
-
-    console.log(`Email: ${adminLoginEmail}`);
-    console.log(`Password: ${adminLoginPassword}`);
-
     res.render('./admin/login', {
         pageTitle: 'Login Page'
     })
+}
+
+exports.adminLoginAuthentication = (req, res, next) => {
+    // Get data by the form
+    const adminLoginEmail = req.body.emailLogin;
+    const adminLoginPassword = req.body.passwordLogin;
+    console.log(`Email: ${adminLoginEmail}`);
+    console.log(`Password: ${adminLoginPassword}`);
+
+    // Check if the user exist
+    User.fetchAll()
+        .then(([rows, fields]) => {
+            rows.forEach(user => {
+                if (user.email === adminLoginEmail && user.password === adminLoginPassword) {
+                    console.log(`valid`);
+                    res.redirect('/admin/dashboard');
+                } else {
+                    console.log(`not valid`);
+                    res.redirect('/');
+                }
+            })
+        })
+        .catch(err => console.log(err));
 }
 
 exports.adminDashboard = (req, res, next) => {

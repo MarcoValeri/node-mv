@@ -1,12 +1,26 @@
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
+const sessions = require('express-session');
 
 const app = express();
 
 // DotEnv configuration
 dotenv.config();
+
+// Session
+const oneDay = 1000 * 60 * 60 * 24;
+
+app.use(sessions({
+    secret: 'this is my secret key',
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+
+app.use(cookieParser());
 
 // Routes
 const adminRoutes = require('./routes/adminRoutes');
