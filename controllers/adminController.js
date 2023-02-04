@@ -15,19 +15,15 @@ exports.adminLoginAuthentication = (req, res, next) => {
     // Get data by the form
     const adminLoginEmail = req.body.emailLogin;
     const adminLoginPassword = req.body.passwordLogin;
-    console.log(`Email: ${adminLoginEmail}`);
-    console.log(`Password: ${adminLoginPassword}`);
 
     // Check if the user exist
     User.fetchAll()
         .then(([rows, fields]) => {
             rows.forEach(user => {
                 if (user.email === adminLoginEmail && user.password === adminLoginPassword) {
-                    console.log(`valid`);
                     req.session.adminUser = true;
                     res.redirect('/admin/dashboard');
                 } else {
-                    console.log(`not valid`);
                     res.redirect('/');
                 }
             })

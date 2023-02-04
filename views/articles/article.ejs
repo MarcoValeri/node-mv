@@ -1,14 +1,57 @@
 <%- include('./../includes/head.ejs'); %>
-    <title><%= pageTitle %></title>
+    <title><%= articleTitle %></title>
+    <meta name="description" content="<%= articleDescription %>">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Article",
+            "headline": "<%= articleTitle %>"
+        },
+        {
+            "datePublished": "<%= articlePublished %>",
+            "dateModified": "<%= articleUpdated %>",
+            "author" {
+                "@type": "Person",
+                "name": "Marco Valeri",
+            },
+        }
+    </script>
 </head>
 <body>
     <%- include('./../includes/header.ejs'); %>
-
-    <div>
-        <h1><%= articleTitle %></h1>
-        <h2><%= articleDescription %></h2>
-        <p><%= articleContent %></p>
-        <p><%= articleImgeUrl %></p>
+<main class="main">
+    <div class="content">
+        <div class="single-article">
+            <div class="single-article__container-title">
+                <h1 class="h1"><%= articleTitle %></h1>
+            </div>
+            <div class="single-article__container-date">
+                <ul class="list-no-style">
+                    <li class="single-article__data-item">Autore: Marco Valeri</li>
+                    <li class="single-article__data-item">Pubblicato il: <%= articlePublished %></li>
+                    <li class="single-article__data-item">Ultima modifica: <%= articleUpdated %></li>
+                </ul>
+            </div>
+            <% if (articleGenderOption) { %>
+                <div class="single-article__gender-banner">
+                    <p id="gender-legend" class="p rainbow">Sentiti libero...</p>
+                    <ul class="list-no-style">
+                        <li class="single-article__gender-item"><img id="gender-male" class="single-article__gender-icon single-article__gender-icon--active" src="../images/male-icon.png" alt="Male Simbol Icon"></li>
+                        <li class="single-article__gender-item"><img id="gender-female" class="single-article__gender-icon" src="../images/female-icon.png" alt="Male Simbol Icon"></li>
+                        <li class="single-article__gender-item"><img id="gender-non-binary" class="single-article__gender-icon" src="../images/non-binary-icon.png" alt="Male Simbol Icon"></li>
+                    </ul>
+                    <p class="p rainbow">...di scegliere il linguaggio che preferisci</p>
+                </div>
+            <%  } %>
+            <div class="single-article__content">
+                <%- articleContent %>
+            </div>
+            <div class="single-article__container-image">
+                <img class="single-article__image" src="../images/<%= articleImgeUrl %>" alt="">
+            </div>
+        </div>
     </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
 
 <%- include('./../includes/footer.ejs'); %>

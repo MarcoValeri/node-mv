@@ -1,9 +1,15 @@
 // Models
 const Article = require('../models/Article');
 
+// Functions
+const func = require('../util/functions');
+
 exports.getArticle = (req, res, next) => {
     // Save url into a variable
     const url = req.params.url;
+
+    // Create date obj
+    const setTheDate = new Date();
 
     Article.findByUrl(url)
         .then(([rows, fields]) => {
@@ -13,10 +19,14 @@ exports.getArticle = (req, res, next) => {
                     flag = true;
                     res.render('./articles/article', {
                         pageTitle: url,
+                        pageUrl: url,
                         articleTitle: rows[index].title,
                         articleDescription: rows[index].description,
                         articleContent: rows[index].content,
-                        articleImgeUrl: rows[index].imageUrl
+                        articleImgeUrl: rows[index].imageUrl,
+                        articlePublished: func.contentDate(rows[index].published),
+                        articleUpdated: func.contentDate(rows[index].updated),
+                        articleGenderOption: true,
                     })
                 }
             }
