@@ -16,7 +16,7 @@ exports.getArticle = (req, res, next) => {
                     flag = true;
                     res.render('./articles/article', {
                         pageTitle: url,
-                        pageUrl: url,
+                        pageUrl: '/articoli',
                         articleTitle: rows[index].title,
                         articleDescription: rows[index].description,
                         articleContent: rows[index].content,
@@ -43,7 +43,7 @@ exports.getAllArticles = (req, res, next) => {
         .then(([rows, fields]) => {
             res.render('./articles/articles', {
                 pageTitle: 'Articoli',
-                pageUrl: req.url,
+                pageUrl: req.originalUrl,
                 allArticles: rows
             })
         })

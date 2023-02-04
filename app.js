@@ -26,6 +26,7 @@ app.use(cookieParser());
 const adminRoutes = require('./routes/adminRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const homeRoutes = require('./routes/homeRoutes');
+const pageRoutes = require('./routes/pageRoutes');
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,6 +42,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Routers
 app.use(adminRoutes);
 app.use(articleRoutes);
+app.use(pageRoutes);
 app.use(homeRoutes);
 
 const PORT = process.env.PORT || process.env.SERVER_PORT;
