@@ -1,0 +1,19 @@
+.articles {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    &__container-title {
+        width: 100%;
+        font-size: 4rem;
+        text-align: center;
+        margin: 4rem auto;
+
+        @include respond('xs') {
+            font-size: 2.5rem;
+        }
+    }
+
+}

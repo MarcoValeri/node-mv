@@ -1,0 +1,64 @@
+.card-article {
+    margin-bottom: 5rem;
+
+    &__wrapper {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        padding: .5rem;
+        transition: all .5s;
+        border: 1px solid $grey-light;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include respond('md') {
+            flex-direction: column;
+        }
+    }
+
+    &__container-image {
+        min-width: 15rem;
+        min-height: 15rem;
+    }
+
+    &__img {
+        width: 15rem;
+        height: 15rem;
+
+        @include respond('m') {
+            width: 100%;
+            height: auto;
+            max-height: 40rem;
+        }
+    }
+
+    &__container-content {
+        width: 60rem;
+        padding: 0 1rem 1rem 1rem;
+
+        @include respond('xxl') {
+            width: 40rem;
+        }
+
+        @include respond('xl') {
+            width: 30rem;
+        }
+
+        @include respond('md') {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 1rem .5rem 0 .5rem;
+        }
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__paragraph {
+        line-height: 1.6;
+    }
+
+}

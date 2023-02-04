@@ -6,6 +6,7 @@ const router = express.Router();
 // Controllers
 const articleControllers = require('../controllers/articleController');
 
-router.use('/articles/:url', articleControllers.getArticle);
+router.use('/articoli/:url', articleControllers.getArticle);
+router.use('/articoli', articleControllers.getAllArticles);
 
 module.exports = router;

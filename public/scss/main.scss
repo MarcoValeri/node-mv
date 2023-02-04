@@ -7,6 +7,9 @@
 @import '../scss/base/font';
 @import '../scss/base/typography';
 
+// Import Card Files
+@import '../scss/cards/card-article';
+
 // Import Layout Files
 @import '../scss/layout/admin-menu';
 @import '../scss/layout/content';
@@ -17,6 +20,7 @@
 @import '../scss/layout/sidebar';
 
 // Import Pages Files
+@import '../scss/../scss/pages/articles';
 @import '../scss/pages/add-new-article';
 @import '../scss/pages/add-new-image';
 @import '../scss/pages/add-new-user';

@@ -8,9 +8,6 @@ exports.getArticle = (req, res, next) => {
     // Save url into a variable
     const url = req.params.url;
 
-    // Create date obj
-    const setTheDate = new Date();
-
     Article.findByUrl(url)
         .then(([rows, fields]) => {
             let flag = false;
@@ -37,6 +34,18 @@ exports.getArticle = (req, res, next) => {
                  */
                 res.redirect('/');
             }
+        })
+        .catch(err => console.log(err));
+}
+
+exports.getAllArticles = (req, res, next) => {
+    Article.fetchAll()
+        .then(([rows, fields]) => {
+            res.render('./articles/articles', {
+                pageTitle: 'Articoli',
+                pageUrl: req.url,
+                allArticles: rows
+            })
         })
         .catch(err => console.log(err));
 }

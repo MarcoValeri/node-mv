@@ -1,0 +1,33 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+    <meta name="description" content="Articoli del sito ufficiale di Marco Valeri, archivio di tutti gli articoli del suo blog scritti, ordinati a partire dal posto più nuovo al più vecchio">
+</head>
+<body>
+    <%- include('./../includes/header.ejs'); %>
+<main class="main">
+    <div class="content">
+        <div class="articles">
+            <div class="articles__container-title">
+                <h1 class="h1">Tutti gli Articoli</h1>
+            </div>
+            <% for (let x = 0; x < allArticles.length; x++) { %>
+                <div class="card-article">
+                    <a href="/articoli/<%= allArticles[x].url %>" class="card-article__container">
+                        <div class="card-article__wrapper">
+                            <div class="card-article__container-image">
+                                <img class="card-article__img" src="<%= allArticles[x].image %>" alt="">
+                            </div>
+                            <div class="card-article__container-content">
+                                <h1 class="card-article__title h5"><%= allArticles[x].title %></h1>
+                                <div class="card-article__paragraph body-4"><%= allArticles[x].description %></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
+
+<%- include('./../includes/footer.ejs'); %>
