@@ -1,0 +1,48 @@
+.newsletter {
+
+    &__container-title {
+        margin-bottom: 2rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        grid-template-areas:
+        "newsletter__container-name"
+        "newsletter__container-email"
+        "newsletter__container-privacy"
+        "newsletter__container-submit";
+    }
+
+    &__container-name {
+        grid-area: newsletter__container-name;
+    }
+
+    &__container-email {
+        grid-area: newsletter__container-email;
+    }
+
+    &__container-privacy {
+        grid-area: newsletter__container-privacy;
+    }
+
+    &__container-submit {
+        grid-area: newsletter__container-submit;
+    }
+
+    // Form General Rules
+    input[type=text] {
+        width: 80%;
+        font-size: 1.6rem;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    input[type=email] {
+        width: 80%;
+        font-size: 1.6rem;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+}

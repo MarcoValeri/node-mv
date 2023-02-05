@@ -1,5 +1,8 @@
 const nodemailer = require('nodemailer');
 
+// Models
+const Newsletter = require('../models/Newsletter');
+
 exports.chiSono = (req, res, next) => {
     res.render('./pages/chi-sono', {
         pageTitle: 'Chi Sono',
@@ -67,5 +70,33 @@ exports.contactConfirm = (req, res, next) => {
     res.render('./pages/contact-confirm', {
         pageTitle: 'Conatti Conferma',
         pageUrl: '/contatti'
+    })
+}
+
+exports.newsletter = (req, res, next) => {
+    res.render('./pages/newsletter', {
+        pageTitle: 'Newsletter',
+        pageUrl: req.originalUrl
+    })
+}
+
+exports.newsletterAddUser = (req, res, next) => {
+    // Get data from the form
+    const name = req.body.name;
+    const email = req.body.name;
+
+    // SAve data into db
+    const newNewsletterUser = new Newsletter(null, name, email, null);
+    newNewsletterUser.save()
+        .then(() => {
+            res.redirect('/newsletter-confirm');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.newsletterConfirm = (req, res, next) => {
+    res.render('./pages/newsletter-confirm', {
+        pageTitle: 'Newsletter Conferma Registrazione',
+        pageUrl: '/newsletter'
     })
 }

@@ -1,0 +1,40 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <%- include('./../includes/header.ejs'); %>
+<main class="main">
+    <div class="content">
+        <div class="newsletter">
+            <div class="newsletter__container-title">
+                <h1 class="h1">Iscriviti alla mia newletter</h1>
+                <p class="body-1">Rimaniamo in contatto tramite email.</p>
+                <p class="body-1">Iscriviti alla mia newsletter dove sono solito a condividere i miei ultimi articoli e alcune novità con i lettori più intimi.</p>
+                <p class="body-1">Le newsletter è mensile ma può capitare di inviare una email extra quando ho qualche notizia in più.</p>
+                <p class="body-1">Se hai piacere di far parte dei lettori iscritti alla newsletter, compila semplicemente il form che segue.</p>
+            </div>
+            <div class="newsletter__container-form">
+                <form action="/newsletter" method="POST">
+                    <div class="newsletter__grid">
+                        <div class="newsletter__container-name">
+                            <input id="name" type="text" name="name" placeholder="Nome *" required>
+                        </div>
+                        <div class="newsletter__container-email">
+                            <input id="email" type="email" name="email" placeholder="Email *" required>
+                        </div>
+                        <div class="newsletter__container-privacy">
+                            <input id="privacy" type="checkbox" name="privacy" required>
+                            <label class="body-3" for="privacy">Accetto la <a class="link" rel="noreferrer noopener" href="">Privacy Policy</a></label>
+                        </div>
+                        <div class="newsletter__container-submit">
+                            <input class="button button__black" type="submit" value="Mi voglio iscrivere">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
+
+<%- include('./../includes/footer.ejs'); %>

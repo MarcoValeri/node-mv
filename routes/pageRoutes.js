@@ -12,4 +12,8 @@ router.post('/contatti', pageController.sendMessage);
 router.use('/contatti', pageController.contact);
 router.use('/contatti-conferma', pageController.contactConfirm);
 
+router.post('/newsletter', pageController.newsletterAddUser);
+router.use('/newsletter', pageController.newsletter);
+router.use('/newsletter-confirm', pageController.newsletterConfirm);
+
 module.exports = router;
