@@ -1,0 +1,24 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+    <meta name="description" content="Chi è Marco Valeri? Web Developer, Blogger e Autore attivo su diversi progetti, creatore di ViaggIn, nato a Roma nel 1984, vive attualmente a Londra">
+</head>
+<body>
+    <%- include('./../includes/header.ejs'); %>
+<main class="main">
+    <div class="content">
+        <div class="single-article">
+            <div class="single-article__container-title">
+                <h1 class="h1"><%= pageTitle %></h1>
+            </div>
+            <div class="contact">
+                <div class="contact__container-confirm">
+                    <p class="body-2">Grazie per avermi scritto.</p>
+                    <p class="body-2">Leggerò il tuo messaggio quanto prima e mi metterò in contatto con te se necessario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
+
+<%- include('./../includes/footer.ejs'); %>

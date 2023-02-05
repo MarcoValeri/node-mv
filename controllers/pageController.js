@@ -1,7 +1,4 @@
-const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
-
-// DotEnv configuration
 
 exports.chiSono = (req, res, next) => {
     res.render('./pages/chi-sono', {
@@ -18,6 +15,15 @@ exports.contact = (req, res, next) => {
 }
 
 exports.sendMessage = (req, res, next) => {
+
+    // Get and check form variables
+    const name = req.body.name;
+    const surname = req.body.surname;
+    const email = req.body.email;
+    const privacy = req.body.privacy;
+    const message = req.body.message;
+
+    // Set and send the email
     const contactEmail = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -31,12 +37,6 @@ exports.sendMessage = (req, res, next) => {
             console.log(error);
         }
     });
-
-    const name = req.body.name;
-    const surname = req.body.surname;
-    const email = req.body.email;
-    const privacy = req.body.privacy;
-    const message = req.body.message;
 
     let emailBody = `<p style="font-size: 16px">Name: ${name}</p>`;
     emailBody += `<p style="font-size: 16px">Surname: ${surname}</p>`;
@@ -56,7 +56,16 @@ exports.sendMessage = (req, res, next) => {
         if (error) {
             res.json({ status: 'Error'});
         } else {
-            res.json({ status: 'Message Sent' });
+            // res.json({ status: 'Message Sent' });
+            res.redirect('/contatti-conferma');
         }
+    })
+
+}
+
+exports.contactConfirm = (req, res, next) => {
+    res.render('./pages/contact-confirm', {
+        pageTitle: 'Conatti Conferma',
+        pageUrl: '/contatti'
     })
 }

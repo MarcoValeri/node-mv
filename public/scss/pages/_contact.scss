@@ -1,5 +1,11 @@
 .contact {
 
+    &__error {
+        width: 80%;
+        color: $red;
+        margin-top: 1rem;
+    }
+
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -46,6 +52,8 @@
     &__container-submit {
         grid-area: contact__container-submit;
     }
+
+    &__container-confirm {}
 
     // Form General Rules
     input[type=text] {

@@ -620,6 +620,11 @@ html {
   .admin-dashboard__table-single-image {
     width: 5rem; }
 
+.contact__error {
+  width: 80%;
+  color: #d00;
+  margin-top: 1rem; }
+
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

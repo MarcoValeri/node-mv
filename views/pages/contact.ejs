@@ -14,19 +14,19 @@
                 <form action="/contatti" method="POST">
                     <div class="contact__grid">
                         <div class="contact__container-name">
-                            <input id="name" type="text" name="name" placeholder="Nome *">
+                            <input id="name" type="text" name="name" placeholder="Nome *" required>
                         </div>
                         <div class="contact__container-surname">
-                            <input id="surname" type="text" name="surname" placeholder="Cognome *">
+                            <input id="surname" type="text" name="surname" placeholder="Cognome *" required>
                         </div>
                         <div class="contact__container-email">
-                            <input id="email" type="email" name="email" placeholder="Email *">
+                            <input id="email" type="email" name="email" placeholder="Email *" required>
                         </div>
                         <div class="contact__container-message">
-                            <textarea name="message" id="message" placeholder="Lascia il tuo messaggio *"></textarea>
+                            <textarea name="message" id="message" placeholder="Lascia il tuo messaggio *" required></textarea>
                         </div>
                         <div class="contact__container-privacy">
-                            <input id="privacy" type="checkbox" name="privacy">
+                            <input id="privacy" type="checkbox" name="privacy" required>
                             <label class="body-3" for="privacy">Accetto la <a class="link" rel="noreferrer noopener" href="">Privacy Policy</a></label>
                         </div>
                         <div class="contact__container-submit">
