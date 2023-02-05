@@ -5,8 +5,28 @@
     <%- include('./../includes/header.ejs'); %>
 <main class="main">
     <div class="content">
-        <h1>Home page</h1>
-        <h2>Content coming soon...</h2>
+        <div class="home">
+            <div class="home__container-articles">
+                <div class="home__container-articles-title">
+                    <h2 class="h2">Ultimi Articoli</h2>
+                </div>
+                <% for (let x = (allArticles.length - 1); x >= 0; x--) { %>
+                    <div class="card-article">
+                        <a href="/articoli/<%= allArticles[x].url %>" class="card-article__container">
+                            <div class="card-article__wrapper">
+                                <div class="card-article__container-image">
+                                    <img class="card-article__img" src="<%= allArticles[x].image %>" alt="">
+                                </div>
+                                <div class="card-article__container-content">
+                                    <h1 class="card-article__title h5"><%= allArticles[x].title %></h1>
+                                    <div class="card-article__paragraph body-4"><%= allArticles[x].description %></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     </div>
     <%- include('./../includes/sidebar.ejs'); %>
 </main>

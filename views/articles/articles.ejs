@@ -10,7 +10,7 @@
             <div class="articles__container-title">
                 <h1 class="h1">Tutti gli Articoli</h1>
             </div>
-            <% for (let x = 0; x < allArticles.length; x++) { %>
+            <% for (let x = (allArticles.length - 1); x >= 0; x--) { %>
                 <div class="card-article">
                     <a href="/articoli/<%= allArticles[x].url %>" class="card-article__container">
                         <div class="card-article__wrapper">

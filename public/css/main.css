@@ -694,6 +694,10 @@ html {
 .delete-image__button {
   margin-right: 2rem; }
 
+.home__container-articles-title {
+  text-align: center;
+  margin-bottom: 2rem; }
+
 .login {
   position: relative;
   height: 80vh; }
