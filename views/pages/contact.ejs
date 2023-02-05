@@ -1,0 +1,43 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+    <meta name="description" content="Chi è Marco Valeri? Web Developer, Blogger e Autore attivo su diversi progetti, creatore di ViaggIn, nato a Roma nel 1984, vive attualmente a Londra">
+</head>
+<body>
+    <%- include('./../includes/header.ejs'); %>
+<main class="main">
+    <div class="content">
+        <div class="single-article">
+            <div class="single-article__container-title">
+                <h1 class="h1"><%= pageTitle %></h1>
+            </div>
+            <div class="contact">
+                <form action="/contatti" method="POST">
+                    <div class="contact__grid">
+                        <div class="contact__container-name">
+                            <input id="name" type="text" name="name" placeholder="Nome *">
+                        </div>
+                        <div class="contact__container-surname">
+                            <input id="surname" type="text" name="surname" placeholder="Cognome *">
+                        </div>
+                        <div class="contact__container-email">
+                            <input id="email" type="email" name="email" placeholder="Email *">
+                        </div>
+                        <div class="contact__container-message">
+                            <textarea name="message" id="message" placeholder="Lascia il tuo messaggio *"></textarea>
+                        </div>
+                        <div class="contact__container-privacy">
+                            <input id="privacy" type="checkbox" name="privacy">
+                            <label class="body-3" for="privacy">Accetto la <a class="link" rel="noreferrer noopener" href="">Privacy Policy</a></label>
+                        </div>
+                        <div class="contact__container-submit">
+                            <input class="button button__white" type="submit" value="Invia">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
+
+<%- include('./../includes/footer.ejs'); %>

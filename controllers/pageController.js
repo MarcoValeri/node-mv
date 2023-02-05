@@ -4,3 +4,10 @@ exports.chiSono = (req, res, next) => {
         pageUrl: req.originalUrl
     })
 }
+
+exports.contact = (req, res, next) => {
+    res.render('./pages/contact', {
+        pageTitle: 'Contatti',
+        pageUrl: req.originalUrl
+    })
+}

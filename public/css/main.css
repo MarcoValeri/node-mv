@@ -620,6 +620,57 @@ html {
   .admin-dashboard__table-single-image {
     width: 5rem; }
 
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5rem;
+  grid-template-areas: "contact__container-name contact__container-surname" "contact__container-email contact__container-email" "contact__container-message contact__container-message" "contact__container-privacy contact__container-privacy" "contact__container-submit contact__container-submit"; }
+  @media only screen and (max-width: 1199px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas: "contact__container-name" "contact__container-surname" "contact__container-email" "contact__container-message" "contact__container-privacy" "contact__container-submit"; } }
+
+.contact__container-name {
+  grid-area: contact__container-name; }
+
+.contact__container-surname {
+  grid-area: contact__container-surname; }
+
+.contact__container-email {
+  grid-area: contact__container-email; }
+
+.contact__container-message {
+  grid-area: contact__container-message; }
+
+.contact__container-privacy {
+  grid-area: contact__container-privacy; }
+
+.contact__container-submit {
+  grid-area: contact__container-submit; }
+
+.contact input[type=text] {
+  width: 80%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+  @media only screen and (max-width: 1199px) {
+    .contact input[type=text] {
+      width: 90%; } }
+
+.contact input[type=email] {
+  width: 90%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.contact textarea {
+  width: 90%;
+  height: auto;
+  min-height: 15rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
 .delete-article__title {
   margin-bottom: 2rem; }
 
