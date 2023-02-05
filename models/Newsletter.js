@@ -1,4 +1,3 @@
-const { newsletter } = require('../controllers/pageController');
 const db = require('../util/database');
 
 // Functions
