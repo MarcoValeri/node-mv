@@ -7,7 +7,8 @@ exports.home = (req, res, next) => {
             res.render('./pages/home', {
                 pageTitle: 'Home',
                 pageUrl: req.url,
-                allArticles: rows
+                allArticles: rows,
+                showAdminNav: req.session.adminUser
             })
         })
         .catch(err => console.log(err));

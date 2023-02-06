@@ -17,13 +17,14 @@ exports.getArticle = (req, res, next) => {
                     res.render('./articles/article', {
                         pageTitle: url,
                         pageUrl: '/articoli',
+                        showAdminNav: req.session.adminUser,
                         articleTitle: rows[index].title,
                         articleDescription: rows[index].description,
                         articleContent: rows[index].content,
                         articleImgeUrl: rows[index].imageUrl,
                         articlePublished: func.contentDate(rows[index].published),
                         articleUpdated: func.contentDate(rows[index].updated),
-                        articleGenderOption: true,
+                        articleGenderOption: true
                     })
                 }
             }
@@ -44,7 +45,8 @@ exports.getAllArticles = (req, res, next) => {
             res.render('./articles/articles', {
                 pageTitle: 'Articoli',
                 pageUrl: req.originalUrl,
-                allArticles: rows
+                allArticles: rows,
+                showAdminNav: req.session.adminUser
             })
         })
         .catch(err => console.log(err));

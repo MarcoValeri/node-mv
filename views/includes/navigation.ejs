@@ -24,9 +24,11 @@
             <li class="navbar__element <%= pageUrl === '/newsletter' ? 'navbar__element--mark' : '' %>">
                 <a class="navbar__link" href="/newsletter">Newsletter</a>
             </li>
+            <% if (showAdminNav) { %>
             <li class="navbar__element">
                 <a class="navbar__link" href="/admin/dashboard">Admin</a>
             </li>
+            <% } %>
         </ul>
     </div>
 </nav>

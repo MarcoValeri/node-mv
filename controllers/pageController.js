@@ -6,14 +6,16 @@ const Newsletter = require('../models/Newsletter');
 exports.chiSono = (req, res, next) => {
     res.render('./pages/chi-sono', {
         pageTitle: 'Chi Sono',
-        pageUrl: req.originalUrl
+        pageUrl: req.originalUrl,
+        showAdminNav: req.session.adminUser
     })
 }
 
 exports.contact = (req, res, next) => {
     res.render('./pages/contact', {
         pageTitle: 'Contatti',
-        pageUrl: req.originalUrl
+        pageUrl: req.originalUrl,
+        showAdminNav: req.session.adminUser
     })
 }
 
@@ -69,14 +71,16 @@ exports.sendMessage = (req, res, next) => {
 exports.contactConfirm = (req, res, next) => {
     res.render('./pages/contact-confirm', {
         pageTitle: 'Conatti Conferma',
-        pageUrl: '/contatti'
+        pageUrl: '/contatti',
+        showAdminNav: req.session.adminUser
     })
 }
 
 exports.newsletter = (req, res, next) => {
     res.render('./pages/newsletter', {
         pageTitle: 'Newsletter',
-        pageUrl: req.originalUrl
+        pageUrl: req.originalUrl,
+        showAdminNav: req.session.adminUser
     })
 }
 
@@ -97,6 +101,7 @@ exports.newsletterAddUser = (req, res, next) => {
 exports.newsletterConfirm = (req, res, next) => {
     res.render('./pages/newsletter-confirm', {
         pageTitle: 'Newsletter Conferma Registrazione',
-        pageUrl: '/newsletter'
+        pageUrl: '/newsletter',
+        showAdminNav: req.session.adminUser
     })
 }
