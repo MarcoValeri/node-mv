@@ -27,6 +27,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const pageRoutes = require('./routes/pageRoutes');
+const robotRoutes = require('./routes/robotRoutes');
 
 // Controllers
 const errorController = require('./controllers/errorController');
@@ -46,6 +47,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(adminRoutes);
 app.use(articleRoutes);
 app.use(pageRoutes);
+app.use(robotRoutes);
 app.use(homeRoutes);
 app.use(errorController.get404);
 
