@@ -16,4 +16,7 @@ router.post('/newsletter', pageController.newsletterAddUser);
 router.use('/newsletter', pageController.newsletter);
 router.use('/newsletter-confirm', pageController.newsletterConfirm);
 
+router.use('/privacy-policy', pageController.privacyPolicy);
+router.use('/cookie-policy', pageController.cookiePolicy);
+
 module.exports = router;

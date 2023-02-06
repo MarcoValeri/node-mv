@@ -105,3 +105,19 @@ exports.newsletterConfirm = (req, res, next) => {
         showAdminNav: req.session.adminUser
     })
 }
+
+exports.privacyPolicy = (req, res, next) => {
+    res.render('./pages/privacy-policy', {
+        pageTitle: 'Privacy Policy',
+        pageUrl: '/newsletter',
+        showAdminNav: req.session.adminUser
+    })
+}
+
+exports.cookiePolicy = (req, res, next) => {
+    res.render('./pages/cookie-policy', {
+        pageTitle: 'Cookie Policy',
+        pageUrl: '/newsletter',
+        showAdminNav: req.session.adminUser
+    })
+}

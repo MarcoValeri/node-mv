@@ -1,31 +1,32 @@
 .footer {
-    position: relative;
-    height: 30vh;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    height: 25vh;
+    padding-bottom: 3rem;
     background-color: #000;
 
     &__content {
-        position: absolute;
-        width: 80%;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         text-align: center;
-
-        @include respond(md) {
-            top: 50%;
-        }
+        padding: 0 2rem;
+        margin-bottom: 1rem;
     }
     
     &__content-main {
-        color: #fff;
-        font-size: 2rem;
+        color: $white;
+    }
 
-        @include respond(md) {
-            line-height: 1.6;
-        }
+    &__privacy {
+        text-align: center;
+        color: $white;
+    }
 
-        @include respond(sm) {
-            font-size: 1.5rem;
-        }
+    &__circle {
+        display: inline-block;
+        height: .5rem;
+        width: .5rem;
+        border-radius: 50%;
+        margin: 0 .5rem;
+        background-color: $white;
     }
 }

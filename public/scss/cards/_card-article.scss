@@ -27,7 +27,7 @@
         width: 15rem;
         height: 15rem;
 
-        @include respond('m') {
+        @include respond('md') {
             width: 100%;
             height: auto;
             max-height: 40rem;
