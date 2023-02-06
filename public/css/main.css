@@ -700,6 +700,20 @@ html {
 .delete-image__button {
   margin-right: 2rem; }
 
+.error-page__container-title {
+  text-align: center;
+  margin-bottom: 2rem; }
+
+.error-page__container-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.error-page__container-button {
+  margin: 1rem;
+  padding: 2rem; }
+
 .home__container-articles-title {
   text-align: center;
   margin-bottom: 2rem; }

@@ -111,10 +111,7 @@ exports.adminShowEditArticle = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));
@@ -170,10 +167,7 @@ exports.adminShowDeleteArticle = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));
@@ -284,10 +278,7 @@ exports.adminShowEditImage = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));
@@ -339,10 +330,7 @@ exports.adminShowDeleteImage = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));
@@ -440,10 +428,7 @@ exports.adminShowEditUser = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));
@@ -496,10 +481,7 @@ exports.adminShowDeleteUser = (req, res, next) => {
                 }
 
                 if (!flag) {
-                    /**
-                     * TODO: Redirect to error 404 template once it will be ready
-                     */
-                    res.redirect('/');
+                    res.redirect('/error404');
                 }
             })
             .catch(err => console.log(err));

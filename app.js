@@ -25,9 +25,11 @@ app.use(cookieParser());
 // Routes
 const adminRoutes = require('./routes/adminRoutes');
 const articleRoutes = require('./routes/articleRoutes');
-// const errorRoutes = require('./routes/errorRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const pageRoutes = require('./routes/pageRoutes');
+
+// Controllers
+const errorController = require('./controllers/errorController');
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,11 +47,7 @@ app.use(adminRoutes);
 app.use(articleRoutes);
 app.use(pageRoutes);
 app.use(homeRoutes);
-// app.use(errorRoutes);
-
-app.use((req, res, next) => {
-    res.status(404).send("Sorry can't find that!")
-})
+app.use(errorController.get404);
 
 const PORT = process.env.PORT || process.env.SERVER_PORT;
 

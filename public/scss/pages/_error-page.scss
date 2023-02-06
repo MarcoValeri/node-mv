@@ -1,0 +1,19 @@
+.error-page {
+    
+    &__container-title {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__container-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__container-button {
+        margin: 1rem;
+        padding: 2rem;
+    }
+}

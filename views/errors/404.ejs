@@ -1,1 +1,29 @@
-<h1>ERROR 404</h1>
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <%- include('./../includes/header.ejs'); %>
+<main class="main">
+    <div class="content">
+        <div class="error-page">
+            <div class="error-page__container-title">
+                <h1 class="h1">Errore 404</h1>
+                <h2 class="h2">Pagina non trovata</h2>
+            </div>
+            <div class="error-page__container-content">
+                <div class="error-page__container-button">
+                    <a href="/" class="button button__black">Home</a>
+                </div>
+                <div class="error-page__container-button">
+                    <a href="/articoli" class="button button__black">Ultimi Articoli</a>
+                </div>
+                <div class="error-page__container-button">
+                    <a href="/contatti" class="button button__black">Contatti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./../includes/sidebar.ejs'); %>
+</main>
+
+<%- include('./../includes/footer.ejs'); %>

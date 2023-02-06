@@ -30,10 +30,7 @@ exports.getArticle = (req, res, next) => {
             }
 
             if (!flag) {
-                /**
-                 * TODO: Redirect to error 404 template once it will be ready
-                 */
-                res.redirect('/');
+                res.redirect('/error404');
             }
         })
         .catch(err => console.log(err));
