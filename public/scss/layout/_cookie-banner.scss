@@ -1,0 +1,32 @@
+.cookie-banner {
+    display: block;
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    width: 90%;
+    height: auto;
+    min-height: 20rem;
+    z-index: 1;
+    padding: 2rem;
+    background-color: $black;
+    color: $white;
+    border: 1px solid $white;
+
+    &__content {
+        font-size: 2.4rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    &__container-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        margin: 2rem;
+    }
+}
