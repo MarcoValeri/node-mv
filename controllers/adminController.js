@@ -6,12 +6,18 @@ const Image = require('../models/Image');
 const User = require('../models/User');
 
 exports.adminLogin = (req, res, next) => {
+    // TEST
+    console.log(`adminLogin`);
+
     res.render('./admin/login', {
         pageTitle: 'Login Page'
     })
 }
 
 exports.adminLoginAuthentication = (req, res, next) => {
+    // TEST
+    console.log(`adminLoginAuthentication`);
+
     // Get data by the form
     const adminLoginEmail = req.body.emailLogin;
     const adminLoginPassword = req.body.passwordLogin;
@@ -57,6 +63,8 @@ exports.adminArticles = (req, res, next) => {
 }
 
 exports.adminNewArticle = (req, res, next) => {
+    // TEST
+    console.log(`adminAddNewArticle`);
     if (req.session.adminUser) {
         res.render('./admin/add-new-article', {
             pageTitle: 'Admin Add New Article'
@@ -67,6 +75,8 @@ exports.adminNewArticle = (req, res, next) => {
 }
 
 exports.adminAddNewArticle = (req, res, next) => {
+    // TEST
+    console.log(`adminAddNewArticle`);
     if (req.session.adminUser) {
         // Get data by the form
         const newArticleTitle = req.body.title;

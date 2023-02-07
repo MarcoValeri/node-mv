@@ -12,9 +12,9 @@ router.use('/admin/dashboard', adminController.adminDashboard);
 router.post('/admin/login', adminController.adminLoginAuthentication);
 router.use('/admin/login', adminController.adminLogin);
 
-router.use('/admin/articles', adminController.adminArticles);
 router.post('/admin/add-new-article', adminController.adminAddNewArticle);
 router.use('/admin/add-new-article', adminController.adminNewArticle);
+router.use('/admin/articles', adminController.adminArticles);
 
 router.post('/admin/edit-article/:url', adminController.adminEditArticle);
 router.use('/admin/edit-article/:url', adminController.adminShowEditArticle);
