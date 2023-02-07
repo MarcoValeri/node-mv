@@ -12,6 +12,8 @@
         "add-new-article__container-title"
         "add-new-article__container-description"
         "add-new-article__container-url"
+        "add-new-article__container-published"
+        "add-new-article__container-updated"
         "add-new-article__container-content"
         "add-new-article__container-image"
         "add-new-article__container-submit";
@@ -27,6 +29,14 @@
 
     &__container-url {
         grid-area: add-new-article__container-url;
+    }
+
+    &__container-published {
+        grid-area: add-new-article__container-published;
+    }
+
+    &__container-updated {
+        grid-area: add-new-article__container-updated;
     }
 
     &__container-content {

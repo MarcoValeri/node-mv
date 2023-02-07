@@ -103,6 +103,8 @@ exports.adminShowEditArticle = (req, res, next) => {
                             articleId: rows[index].id,
                             articleTitle: rows[index].title,
                             articleDescription: rows[index].description,
+                            articlePublished: rows[index].published,
+                            articleUpdated: rows[index].updated,
                             articleUrl: url,
                             articleContent: rows[index].content,
                             articleImgeUrl: rows[index].imageUrl
