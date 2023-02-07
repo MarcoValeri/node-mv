@@ -72,11 +72,13 @@ exports.adminAddNewArticle = (req, res, next) => {
         const newArticleTitle = req.body.title;
         const newArticleDescription = req.body.description;
         const newArticleUrl = req.body.url;
+        const newArticlePublished = req.body.published;
+        const newArticleUpdated = req.body.updated;
         const newArticleContent = req.body.content;
         const newArticleImage = req.body.imageUrl;
 
         // Save data into db
-        const newArticle = new Article(null, newArticleTitle, newArticleDescription, newArticleUrl, newArticleContent, newArticleImage);
+        const newArticle = new Article(null, newArticleTitle, newArticleDescription, newArticleUrl, newArticlePublished, newArticleUpdated, newArticleContent, newArticleImage);
         newArticle.save()
             .then(() => {
                 res.redirect('/admin/dashboard');
@@ -130,11 +132,13 @@ exports.adminEditArticle = (req, res, next) => {
         const newArticleTitle = req.body.title;
         const newArticleDescription = req.body.description;
         const newArticleUrl = req.body.url;
+        const newArticlePublished = req.body.published;
+        const newArticleUpdated = req.body.updated;
         const newArticleContent = req.body.content;
         const newArticleImage = req.body.imageUrl;
 
         // Save data into db
-        const editArticle = new Article(newArticleId, newArticleTitle, newArticleDescription, newArticleUrl, newArticleContent, newArticleImage);
+        const editArticle = new Article(newArticleId, newArticleTitle, newArticleDescription, newArticleUrl, newArticlePublished, newArticleUpdated, newArticleContent, newArticleImage);
         editArticle.edit()
             .then(() => {
                 res.redirect('/admin/articles');
