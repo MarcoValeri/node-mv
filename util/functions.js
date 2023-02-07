@@ -6,18 +6,18 @@
  * with formt dd/mm/yyyy
  */
 exports.contentDate = getContentDate => {
-    const setDateObj = new Date();
+    const setDateObj = new Date(getContentDate);
     
     // Day
-    let setTheDay = setDateObj.getDate(getContentDate);
+    let setTheDay = setDateObj.getDate();
     if (setTheDay < 10) setTheDay = `0${setTheDay}`;
 
     // Month
-    let setTheMonth = setDateObj.getMonth(getContentDate);
+    let setTheMonth = setDateObj.getMonth() + 1;
     if (setTheMonth < 10) setTheMonth = `0${setTheMonth}`;
 
     // Year
-    let setTheYear = setDateObj.getFullYear(getContentDate);
+    let setTheYear = setDateObj.getFullYear();
 
     // Output
     const output = `${setTheDay}/${setTheMonth}/${setTheYear}`;

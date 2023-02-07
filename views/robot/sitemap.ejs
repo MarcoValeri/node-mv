@@ -22,8 +22,8 @@
         <loc>https://www.marcovaleri.net/page/newsletter-confirm</loc>
     </url>
     <%
-    const setDateNowGoogleFormat = () => {
-        const setDateObj = new Date();
+    const setDateNowGoogleFormat = getTheDate => {
+        const setDateObj = new Date(getTheDate);
     
         // Day
         let setTheDay = setDateObj.getDate();
