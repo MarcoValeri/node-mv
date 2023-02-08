@@ -41,7 +41,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 // Body Parser
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Routers
 app.use(adminRoutes);
