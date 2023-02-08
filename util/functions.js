@@ -37,7 +37,7 @@ exports.setDateNow = () => {
     if (setTheDay < 10) setTheDay = `0${setTheDay}`;
 
     // Month
-    let setTheMonth = setDateObj.getMonth();
+    let setTheMonth = setDateObj.getMonth() + 1;
     if (setTheMonth < 10) setTheMonth = `0${setTheMonth}`;
 
     // Year
@@ -45,5 +45,31 @@ exports.setDateNow = () => {
 
     // Output
     const output = `${setTheDay}/${setTheMonth}/${setTheYear}`;
+    return output;
+}
+
+/**
+ * Create a function that gets
+ * @param string
+ * and
+ * @return string date
+ * with Google formt yyy-mm-dd
+ */
+exports.contentDateGoogleFormat = getContentDate => {
+    const setDateObj = new Date(getContentDate);
+    
+    // Day
+    let setTheDay = setDateObj.getDate();
+    if (setTheDay < 10) setTheDay = `0${setTheDay}`;
+
+    // Month
+    let setTheMonth = setDateObj.getMonth() + 1;
+    if (setTheMonth < 10) setTheMonth = `0${setTheMonth}`;
+
+    // Year
+    let setTheYear = setDateObj.getFullYear();
+
+    // Output
+    const output = `${setTheYear}-${setTheMonth}-${setTheDay}`;
     return output;
 }

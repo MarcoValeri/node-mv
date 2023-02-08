@@ -543,6 +543,12 @@ html {
   padding: 1rem;
   border-radius: 5px; }
 
+.add-new-article input[type=date] {
+  width: 15rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
 .add-new-article textarea {
   width: 80%;
   font-size: 1.6rem;

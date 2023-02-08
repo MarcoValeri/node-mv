@@ -9,6 +9,26 @@
             </div>
             <div class="admin-dashboard__container-content">
                 <!-- Used the style of _add-new-article.scss -->
+                <%
+                const contentDateGoogleFormat = getContentDate => {
+                    const setDateObj = new Date(getContentDate);
+                    
+                    // Day
+                    let setTheDay = setDateObj.getDate();
+                    if (setTheDay < 10) setTheDay = `0${setTheDay}`;
+                
+                    // Month
+                    let setTheMonth = setDateObj.getMonth() + 1;
+                    if (setTheMonth < 10) setTheMonth = `0${setTheMonth}`;
+                
+                    // Year
+                    let setTheYear = setDateObj.getFullYear();
+                
+                    // Output
+                    const output = `${setTheYear}-${setTheMonth}-${setTheDay}`;
+                    return output;
+                }
+                %>
                 <div class="add-new-article">
                     <h2 class="add-new-article__title h2">Edit Article with ID: <%= articleId %></h2>
                     <form action="/admin/edit-article/<%= articleUrl %>" method="POST">
@@ -27,12 +47,12 @@
                                 <input id="url" type="text" name="url" value="<%= articleUrl %>" />
                             </div>
                             <div class="add-new-article__container-published">
-                                <label class="body-3" for="published">Published</label>
-                                <input id="published" type="date" name="published" value="<%= articlePublished %>" />
+                                <label class="body-3" for="published">Published: <%= contentDateGoogleFormat(articlePublished) %></label>
+                                <input id="published" type="date" name="published" value="<%= contentDateGoogleFormat(articlePublished) %>" />
                             </div>
                             <div class="add-new-article__container-updated">
                                 <label class="body-3" for="updated">Updated</label>
-                                <input id="updated" type="date" name="updated" value="<%= articleUpdated %>" />
+                                <input id="updated" type="date" name="updated" value="<%= contentDateGoogleFormat(articleUpdated) %>" />
                             </div>
                             <div class="add-new-article__container-content">
                                 <textarea id="content" name="content" cols="30" rows="10"><%= articleContent %></textarea>
