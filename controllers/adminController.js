@@ -13,6 +13,7 @@ exports.adminLogin = (req, res, next) => {
 
 exports.adminLoginAuthentication = (req, res, next) => {
     // Get data by the form
+    let loginAccess = false;
     const adminLoginEmail = req.body.emailLogin;
     const adminLoginPassword = req.body.passwordLogin;
 
@@ -22,13 +23,19 @@ exports.adminLoginAuthentication = (req, res, next) => {
             rows.forEach(user => {
                 if (user.email === adminLoginEmail && user.password === adminLoginPassword) {
                     req.session.adminUser = true;
-                    res.redirect('/admin/dashboard');
-                } else {
-                    res.redirect('/');
+                    loginAccess = true;
                 }
             })
         })
-        .catch(err => console.log(err));
+        .then(() => {
+            console.log(`Step3 - loginAccess: ${loginAccess}`);
+            if (loginAccess && req.session.adminUser) {
+                res.redirect('/admin/dashboard');
+            } else {
+                res.redirect('/');
+            }
+        })
+        .catch(err => console.log(err));    
 }
 
 exports.adminDashboard = (req, res, next) => {
