@@ -34,7 +34,7 @@ router.post('/admin/delete-image/:url', adminController.adminDeleteImage);
 router.use('/admin/delete-image/:url', adminController.adminShowDeleteImage);
 
 router.use('/admin/users', adminController.adminUsers);
-router.post('/admin/add-new-user', adminController.adminAddNewArticle);
+router.post('/admin/add-new-user', adminController.adminAddNewUser);
 router.use('/admin/add-new-user', adminController.adminNewUser);
 
 router.post('/admin/edit-user/:id', adminController.adminEditUser);
