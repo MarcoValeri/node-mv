@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 // Models
 const Article = require('../models/Article');
 const Image = require('../models/Image');
+const Newsletter = require('../models/Newsletter');
 const User = require('../models/User');
 
 exports.adminLogin = (req, res, next) => {
@@ -34,7 +35,7 @@ exports.adminLoginAuthentication = (req, res, next) => {
                 res.redirect('/');
             }
         })
-        .catch(err => console.log(err));    
+        .catch(err => console.log(err));
 }
 
 exports.adminDashboard = (req, res, next) => {
@@ -514,6 +515,21 @@ exports.adminDeleteUser = (req, res, next) => {
         deleteUser.delete()
             .then(() => {
                 res.redirect('/admin/users');
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
+
+exports.adminNewsletterList = (req, res, next) => {
+    if (req.session.adminUser) {
+        Newsletter.fetchAll()
+            .then(([rows, fields]) => {
+                res.render('./admin/newsletter-list', {
+                    pageTitle: 'Admin Newsletter List',
+                    newsletterList: rows
+                })
             })
             .catch(err => console.log(err));
     } else {

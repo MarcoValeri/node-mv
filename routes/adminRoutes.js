@@ -43,4 +43,6 @@ router.use('/admin/edit-user/:id', adminController.adminShowEditUser);
 router.post('/admin/delete-user/:id', adminController.adminDeleteUser);
 router.use('/admin/delete-user/:id', adminController.adminShowDeleteUser);
 
+router.use('/admin/newsletter-list', adminController.adminNewsletterList);
+
 module.exports = router;
