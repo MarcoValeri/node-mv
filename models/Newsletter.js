@@ -19,8 +19,26 @@ module.exports = class Newsletter {
         );
     }
 
+    edit() {
+        return db.execute(
+            'UPDATE newsletter SET name = ?, email = ?, subscribed = ? WHERE id = ?',
+            [this.name, this.email, this.subscribed, this.id]
+        );
+    }
+
+    delete() {
+        return db.execute(
+            'DELETE FROM newsletter WHERE id = ?',
+            [this.id]
+        );
+    }
+
     static fetchAll() {
         return db.execute('SELECT * FROM newsletter');
+    }
+
+    static findById(id) {
+        return db.execute('SELECT * FROM newsletter WHERE id = ?', [id]);
     }
 
 }

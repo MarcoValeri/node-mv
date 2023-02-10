@@ -354,7 +354,7 @@ html {
   @media only screen and (max-width: 991px) {
     .main {
       grid-template-columns: 1fr;
-      grid-template-areas: "content" "sidebar"; } }
+      grid-template-areas: "content" "sidebar"; } }
   @media only screen and (max-width: 767px) {
     .main {
       width: 95%;
@@ -500,6 +500,44 @@ html {
       .articles__container-title {
         font-size: 2.5rem; } }
 
+.add-newsletter-list__title {
+  margin-bottom: 2rem; }
+
+.add-newsletter-list__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2rem;
+  grid-template-areas: "add-newsletter-list__container-name" "add-newsletter-list__container-email" "add-newsletter-list__container-subscribed" "add-newsletter-list__container-submit"; }
+
+.add-newsletter-list__container-name {
+  grid-area: add-newsletter-list__container-name; }
+
+.add-newsletter-list__container-email {
+  grid-area: add-newsletter-list__container-email; }
+
+.add-newsletter-list__container-subscribed {
+  grid-area: add-newsletter-list__container-subscribed; }
+
+.add-newsletter-list__container-submit {
+  grid-area: add-newsletter-list__container-submit; }
+
+.add-newsletter-list label,
+.add-newsletter-list input {
+  display: block; }
+
+.add-newsletter-list input[type=email],
+.add-newsletter-list input[type=password] {
+  width: 80%;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.add-newsletter-list input[type=date] {
+  width: 15rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 5px; }
+
 .add-new-article__title {
   margin-bottom: 2rem; }
 
@@ -507,7 +545,7 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 2rem;
-  grid-template-areas: "add-new-article__container-title" "add-new-article__container-description" "add-new-article__container-url" "add-new-article__container-published" "add-new-article__container-updated" "add-new-article__container-content" "add-new-article__container-image" "add-new-article__container-submit"; }
+  grid-template-areas: "add-new-article__container-title" "add-new-article__container-description" "add-new-article__container-url" "add-new-article__container-published" "add-new-article__container-updated" "add-new-article__container-content" "add-new-article__container-image" "add-new-article__container-submit"; }
 
 .add-new-article__container-title {
   grid-area: add-new-article__container-title; }
@@ -562,7 +600,7 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 2rem;
-  grid-template-areas: "add-new-image__container-title" "add-new-image__container-caption" "add-new-image__container-description" "add-new-image__container-image" "add-new-image__container-submit"; }
+  grid-template-areas: "add-new-image__container-title" "add-new-image__container-caption" "add-new-image__container-description" "add-new-image__container-image" "add-new-image__container-submit"; }
 
 .add-new-image__container-title {
   grid-area: add-new-image__container-title; }
@@ -611,7 +649,7 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 2rem;
-  grid-template-areas: "add-new-user__container-email" "add-new-user__container-password" "add-new-user__container-submit"; }
+  grid-template-areas: "add-new-user__container-email" "add-new-user__container-password" "add-new-user__container-submit"; }
 
 .add-new-user__container-email {
   grid-area: add-new-user__container-email; }
@@ -678,11 +716,11 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 5rem;
-  grid-template-areas: "contact__container-name contact__container-surname" "contact__container-email contact__container-email" "contact__container-message contact__container-message" "contact__container-privacy contact__container-privacy" "contact__container-submit contact__container-submit"; }
+  grid-template-areas: "contact__container-name contact__container-surname" "contact__container-email contact__container-email" "contact__container-message contact__container-message" "contact__container-privacy contact__container-privacy" "contact__container-submit contact__container-submit"; }
   @media only screen and (max-width: 1199px) {
     .contact__grid {
       grid-template-columns: 1fr;
-      grid-template-areas: "contact__container-name" "contact__container-surname" "contact__container-email" "contact__container-message" "contact__container-privacy" "contact__container-submit"; } }
+      grid-template-areas: "contact__container-name" "contact__container-surname" "contact__container-email" "contact__container-message" "contact__container-privacy" "contact__container-submit"; } }
 
 .contact__container-name {
   grid-area: contact__container-name; }
@@ -777,12 +815,12 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 3rem;
-    grid-template-areas: "login__form-container-email login__form-container-password" "login__form-container-btn login__form-container-btn"; }
+    grid-template-areas: "login__form-container-email login__form-container-password" "login__form-container-btn login__form-container-btn"; }
     @media only screen and (max-width: 767px) {
       .login__form-grid {
         grid-template-columns: 1fr;
         grid-row-gap: 3rem;
-        grid-template-areas: "login__form-container-email" "login__form-container-password" "login__form-container-btn"; } }
+        grid-template-areas: "login__form-container-email" "login__form-container-password" "login__form-container-btn"; } }
   .login__form-container-email {
     grid-template-areas: login__form-container-email; }
   .login__form-container-password {
@@ -803,7 +841,7 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 2rem;
-  grid-template-areas: "newsletter__container-name" "newsletter__container-email" "newsletter__container-privacy" "newsletter__container-submit"; }
+  grid-template-areas: "newsletter__container-name" "newsletter__container-email" "newsletter__container-privacy" "newsletter__container-submit"; }
 
 .newsletter__container-name {
   grid-area: newsletter__container-name; }

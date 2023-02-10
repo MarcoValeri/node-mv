@@ -564,3 +564,58 @@ exports.adminAddNewUserNesletterList = (req, res, next) => {
         res.redirect('/admin/login');
     }
 }
+
+exports.adminShowEditNewsletterUser = (req, res, next) => {
+    if (req.session.adminUser) {
+        /**
+         * Save id into a variable as string.
+         * Transform it into a int
+         */
+        const idString = req.params.id;
+        const id = parseInt(idString);
+
+        Newsletter.findById(id)
+            .then(([rows, fields]) => {
+                let flag = false;
+                for (let index = 0; index < rows.length; index++) {
+                    if (rows[index].id === id) {
+                        flag = true;
+                        res.render('./admin/edit-newsletter-user', {
+                            pageTitle: `Admin Newsletter Edit User: ${id}`,
+                            newsletterUserId: rows[index].id,
+                            newsletterUserName: rows[index].name,
+                            newsletterUserEmail: rows[index].email,
+                            newsletterUserSubscribed: rows[index].subscribed
+                        })
+                    }
+                }
+
+                if (!flag) {
+                    res.redirect('/error404');
+                }
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
+
+exports.adminEditNewsletterUser = (req, res, next) => {
+    if (req.session.adminUser) {
+        // Get data by the form
+        const newsNewsletterId = req.body.newsletterUserId;
+        const newNewsletterName = req.body.name;
+        const newNewsletterEmail = req.body.email;
+        const newNewsletterSubscribed = req.body.subscribed;
+
+        // Save data into db
+        const edtiNewsletterUser = new Newsletter(newsNewsletterId, newNewsletterName, newNewsletterEmail, newNewsletterSubscribed);
+        edtiNewsletterUser.edit()
+            .then(() => {
+                res.redirect('/admin/newsletter-list');
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
