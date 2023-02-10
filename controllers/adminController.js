@@ -537,8 +537,30 @@ exports.adminNewsletterList = (req, res, next) => {
     }
 }
 
-// exports.adminShowNewNewsletterList = (req, res, next) => {
-//     res.render('/admin/add-newsletter-list', {
+exports.adminNewUserNewsletterList = (req, res, next) => {
+    if (req.session.adminUser) {
+        res.render('./admin/add-newsletter-list', {
+            pageTitle: 'Admin Add Newsletter List'
+        })
+    } else {
+        res.redirect('/admin/login');
+    }
+}
 
-//     })
-// }
+exports.adminAddNewUserNesletterList = (req, res, next) => {
+    if (req.session.adminUser) {
+        // Get data by the form
+        const newNewsletterName = req.body.name;
+        const newNewsletterEmail = req.body.email;
+        const newNewsletterSubscribed = req.body.subscribed;
+
+        const newNewsletterUser = new Newsletter(null, newNewsletterName, newNewsletterEmail, newNewsletterSubscribed);
+        newNewsletterUser.save()
+            .then(() => {
+                res.redirect('/admin/dashboard');
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
