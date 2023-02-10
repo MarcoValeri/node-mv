@@ -1,0 +1,35 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="add-newsletter-list">
+                    <h2 class="add-newsletter-list__title h2">Add Newsletter List</h2>
+                    <form action="/admin/add-new-newsletter-list" method="POST">
+                        <div class="add-newsletter-list__grid">
+                            <div class="add-newsletter-list__container-name">
+                                <label class="body-3" for="name">Name</label>
+                                <input id="name" type="text" name="name" />
+                            </div>
+                            <div class="add-newsletter-list__container-email">
+                                <label class="body-3" for="email">Email</label>
+                                <input id="email" type="text" name="email" />
+                            </div>
+                            <div class="add-newsletter-list__container-subscribed">
+                                <label class="body-3" for="subscribed">Subscribed</label>
+                                <input id="subscribed" type="date" name="subscribed" />
+                            </div>
+                            <div class="add-newsletter-list__container-submit">
+                                <input class="button button__white" type="submit" value="Add">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

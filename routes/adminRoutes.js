@@ -44,5 +44,6 @@ router.post('/admin/delete-user/:id', adminController.adminDeleteUser);
 router.use('/admin/delete-user/:id', adminController.adminShowDeleteUser);
 
 router.use('/admin/newsletter-list', adminController.adminNewsletterList);
+// router.post('/admin/add-new-newsletter-list', adminController);
 
 module.exports = router;

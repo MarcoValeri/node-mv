@@ -536,3 +536,9 @@ exports.adminNewsletterList = (req, res, next) => {
         res.redirect('/admin/login');
     }
 }
+
+// exports.adminShowNewNewsletterList = (req, res, next) => {
+//     res.render('/admin/add-newsletter-list', {
+
+//     })
+// }
