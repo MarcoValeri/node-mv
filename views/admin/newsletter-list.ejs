@@ -49,7 +49,7 @@
                         <td><p class="body-4"><%= newsletterList[index].email %></p></td>
                         <td><p class="body-4"><%= setDateNowFormat(newsletterList[index].subscribed) %></p></td>
                         <td><a class="button button__white" href="/admin/edit-newsletter-user/<%= newsletterList[index].id %>">Edit</a></td>
-                        <td><a class="button button__white" href="#">Delete</a></td>
+                        <td><a class="button button__white" href="/admin/delete-newsletter-user/<%= newsletterList[index].id %>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

@@ -50,4 +50,7 @@ router.use('/admin/add-new-newsletter-list', adminController.adminNewUserNewslet
 router.post('/admin/edit-newsletter-user/:id', adminController.adminEditNewsletterUser);
 router.use('/admin/edit-newsletter-user/:id', adminController.adminShowEditNewsletterUser);
 
+router.post('/admin/delete-newsletter-user/:id', adminController.adminDeleteNewsletterUser);
+router.use('/admin/delete-newsletter-user/:id', adminController.adminShowDeleteNewsletterUser);
+
 module.exports = router;

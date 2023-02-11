@@ -557,7 +557,7 @@ exports.adminAddNewUserNesletterList = (req, res, next) => {
         const newNewsletterUser = new Newsletter(null, newNewsletterName, newNewsletterEmail, newNewsletterSubscribed);
         newNewsletterUser.save()
             .then(() => {
-                res.redirect('/admin/dashboard');
+                res.redirect('/admin/newsletter-list');
             })
             .catch(err => console.log(err));
     } else {
@@ -611,6 +611,61 @@ exports.adminEditNewsletterUser = (req, res, next) => {
         // Save data into db
         const edtiNewsletterUser = new Newsletter(newsNewsletterId, newNewsletterName, newNewsletterEmail, newNewsletterSubscribed);
         edtiNewsletterUser.edit()
+            .then(() => {
+                res.redirect('/admin/newsletter-list');
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
+
+exports.adminShowDeleteNewsletterUser = (req, res, next) => {
+    if (req.session.adminUser) {
+        /**
+         * Save id into a variable as string.
+         * Transform it into a int
+         */
+        const idString = req.params.id;
+        const id = parseInt(idString);
+
+        Newsletter.findById(id)
+            .then(([rows, fields]) => {
+                let flag = false;
+                for (let index = 0; index < rows.length; index++) {
+                    if (rows[index].id === id) {
+                        flag = true;
+                        res.render('./admin/delete-newsletter-user', {
+                            pageTitle: `Admin Delete Newsletter User: ${id}`,
+                            newsletterUserId: rows[index].id,
+                            newsletterUserName: rows[index].name,
+                            newsletterUserEmail: rows[index].email,
+                            newsletterUserSubscribed: rows[index].subscribed
+                        })
+                    }
+                }
+
+                if (!flag) {
+                    res.redirect('/error404');
+                }
+            })
+            .catch(err => console.log(err));
+    } else {
+        res.redirect('/admin/login');
+    }
+}
+
+exports.adminDeleteNewsletterUser = (req, res, next) => {
+    if (req.session.adminUser) {
+        // Get data by the form
+        const newsletterUserId = req.body.newsletterUserId;
+        const newsletterUserName = req.body.newsletterUserName;
+        const newsletterUserEmail = req.body.newsletterUserEmail;
+        const newsletterUserSubscribed = req.body.newsletterUserSubscribed;
+
+        // Delete data from db
+        const deleteNewsletterUser = new Newsletter(newsletterUserId, newsletterUserName, newsletterUserEmail, newsletterUserSubscribed);
+        deleteNewsletterUser.delete()
             .then(() => {
                 res.redirect('/admin/newsletter-list');
             })

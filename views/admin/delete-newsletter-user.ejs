@@ -1,0 +1,25 @@
+<%- include('./../includes/head.ejs'); %>
+    <title><%= pageTitle %></title>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-dashboard__grid">
+            <div class="admin-dashboard__container-menu">
+                <%- include('./../includes/admin-menu.ejs'); %>
+            </div>
+            <div class="admin-dashboard__container-content">
+                <div class="delete-article">
+                    <h2 class="delete-article__title h2">Delete Newsletter User with ID: <%= newsletterUserId %>?</h2>
+                    <p class="delete-article__sub-title body-2">Are you sure do you want delete user with id: <%= newsletterUserId %></p>
+                </div>
+                <form action="/admin/delete-newsletter-user/<%= newsletterUserId %>" method="POST">
+                    <input id="newsletterUserId" type="hidden" name="newsletterUserId" value="<%= newsletterUserId %>">
+                    <input id="newsletterUserName" type="hidden" name="newsletterUserName" value="<%= newsletterUserName %>" />
+                    <input id="newsletterUserEmail" type="hidden" name="newsletterUserEmail" value="<%= newsletterUserEmail %>" />
+                    <input id="newsletterUserSubscribed" type="hidden" name="newsletterUserSubscribed" value="<%= newsletterUserSubscribed %>" />
+                    <input class="delete-article__button button button__white" type="submit" value="Delete">
+                    <a href="/admin/newsletter-list" class="button button__white">Back to Newsletter Users</a>
+                </form>
+            </div>
+        </div>
+    </div>
