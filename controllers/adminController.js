@@ -1,4 +1,4 @@
-const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 
 // Models
 const Article = require('../models/Article');
@@ -398,18 +398,47 @@ exports.adminNewUser = (req, res, next) => {
     }
 }
 
+// exports.adminAddNewUser = (req, res, next) => {
+//     if (req.session.adminUser) {
+//         // Get data by the form
+//         const newUserEmail = req.body.userEmail;
+//         const newUserPassword = req.body.userPassword;
+
+//         // Save data into db
+//         const newUser = new User(null, newUserEmail, newUserPassword);
+//         newUser.save()
+//             .then(() => {
+//                 res.redirect('/admin/dashboard');
+//             })
+//             .catch(err => console.log(err));
+//     } else {
+//         res.redirect('/admin/login');
+//     }
+// }
+
 exports.adminAddNewUser = (req, res, next) => {
     if (req.session.adminUser) {
+
         // Get data by the form
         const newUserEmail = req.body.userEmail;
         const newUserPassword = req.body.userPassword;
 
-        // Save data into db
-        const newUser = new User(null, newUserEmail, newUserPassword);
-        newUser.save()
-            .then(() => {
-                res.redirect('/admin/dashboard');
+        // Encrypt the pw
+        const saltRounds = 10;
+        bcrypt
+            .genSalt(saltRounds)
+            .then(salt => {
+                return bcrypt.hash(newUserPassword, salt);
             })
+            .then(hash => {
+                // Save data into db
+                const newUser = new User(null, newUserEmail, hash);
+                newUser.save()
+                    .then(() => {
+                        res.redirect('/admin/dashboard');
+                    })
+                    .catch(err => console.log(err));
+                    })
             .catch(err => console.log(err));
     } else {
         res.redirect('/admin/login');
