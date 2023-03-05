@@ -398,24 +398,6 @@ exports.adminNewUser = (req, res, next) => {
     }
 }
 
-// exports.adminAddNewUser = (req, res, next) => {
-//     if (req.session.adminUser) {
-//         // Get data by the form
-//         const newUserEmail = req.body.userEmail;
-//         const newUserPassword = req.body.userPassword;
-
-//         // Save data into db
-//         const newUser = new User(null, newUserEmail, newUserPassword);
-//         newUser.save()
-//             .then(() => {
-//                 res.redirect('/admin/dashboard');
-//             })
-//             .catch(err => console.log(err));
-//     } else {
-//         res.redirect('/admin/login');
-//     }
-// }
-
 exports.adminAddNewUser = (req, res, next) => {
     if (req.session.adminUser) {
 
@@ -486,13 +468,24 @@ exports.adminEditUser = (req, res, next) => {
         const newUserEamil = req.body.userEmail;
         const newUserPassword = req.body.userPassword;
 
-        // Save data into db
-        const editUser = new User(newUserId, newUserEamil, newUserPassword);
-        editUser.edit()
-            .then(() => {
-                res.redirect('/admin/users');
+        // Encrypt the pw
+        const saltRounds = 10;
+        bcrypt
+            .genSalt(saltRounds)
+            .then(salt => {
+                return bcrypt.hash(newUserPassword, salt);
             })
-            .catch(err => console.log(err));
+            .then(hash => {
+                // Save data into db
+                const editUser = new User(newUserId, newUserEamil, hash);
+                editUser.edit()
+                    .then(() => {
+                        res.redirect('/admin/users');
+                    })
+                    .catch(err => console.log(err));
+                
+            })
+
     } else {
         res.redirect('/admin/login');
     }
